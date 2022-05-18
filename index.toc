@@ -1,4 +1,4 @@
 \babel@toc {french}{}\relax 
 \contentsline {section}{Construction de $\mathbb {R}$}{2}{}%
-\contentsline {subsection}{\numberline {0.1}Motivation et suites de Cauchy}{2}{}%
-\contentsline {subsubsection}{\numberline {0.1.1}Pourquoi $\mathbb {R}$ ?}{2}{}%
+\contentsline {subsection}{\numberline {1}Motivation et suites de Cauchy}{2}{}%
+\contentsline {subsubsection}{\numberline {1.1}Pourquoi $\mathbb {R}$ ?}{2}{}%

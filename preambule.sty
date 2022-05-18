@@ -1,0 +1,53 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{preambule}[Préambule.]
+
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage[landscape, a4paper, left=1cm, top=1cm, right=1cm, bottom=1.7cm]{geometry}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage{ifthen}
+\setlist[itemize]{itemsep=-1mm, topsep=0pt}
+\setlist[enumerate]{itemsep=-1mm, topsep=0pt}
+\usepackage{multicol}
+\setlength{\columnsep}{1cm}
+\usepackage{titleps}
+\renewpagestyle{plain}{%
+\sethead{}{}{}
+\setfoot[\thepage][][]{}{}{\color{blue!50!green}\thepage}
+}%
+\pagestyle{plain}
+\setlength\parindent{0pt}
+
+% le titre
+\newcommand{\titre}[2]{
+\addcontentsline{toc}{section}{#1}    
+\begin{center}
+    \Large \color{blue!50!green} \fbox{\begin{minipage}{13cm}
+        \centering #1
+    \end{minipage}}
+    
+    \medskip
+    \normalsize \normalcolor #2
+\end{center}}
+
+%les environnements : définition, théorème (blanc-bleu vert)/ propriété (bleu vert-blanc) / exercice, exemple (bleu violet)
+
+\newcounter{theoreme}
+\newenvironment{theoreme}[1][]{\refstepcounter{theoreme}
+\begin{tcolorbox}[coltitle=black, colframe=blue!50!green!40!white, colback=white, adjusted title=Théorème~\thetheoreme \ifthenelse{\equal{#1}{}}{}{\ (#1)}]}{\end{tcolorbox}}
+
+\newcounter{defini}
+\newenvironment{defini}[1][]{\refstepcounter{defini}
+\begin{tcolorbox}[coltitle=black, colframe=blue!50!green!40!white, colback=white, adjusted title=Définition~\thetheoreme \ifthenelse{\equal{#1}{}}{}{\ (#1)}]}{\end{tcolorbox}}
+
+\newcounter{prop}
+\newenvironment{prop}[1][]{\refstepcounter{prop}
+\begin{tcolorbox}[coltitle=black, colframe=blue!50!green!20!white, colback=white, adjusted title=Propriété~\theprop \ifthenelse{\equal{#1}{}}{}{\ (#1)}]}{\end{tcolorbox}}
+
+\newcounter{exo}
+\newenvironment{exo}[1][]{\refstepcounter{exo}
+\medskip\begin{tcolorbox}[coltitle=black, colframe=blue!50!green!20!white, colback=white, adjusted title=Exercice~\theexo \ifthenelse{\equal{#1}{}}{}{\ (#1)}]}{\end{tcolorbox}\medskip}

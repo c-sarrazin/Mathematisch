@@ -23,18 +23,6 @@
 \pagestyle{plain}
 \setlength\parindent{0pt}
 
-% le titre
-\newcommand{\titre}[2]{
-\addcontentsline{toc}{section}{#1}    
-\begin{center}
-    \Large \color{blue!50!green} \fbox{\begin{minipage}{13cm}
-        \centering #1
-    \end{minipage}}
-    
-    \medskip
-    \normalsize \normalcolor #2
-\end{center}}
-
 % les sous-sections
 \renewcommand{\thesubsection}{\arabic{subsection}}
 \renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
@@ -56,3 +44,19 @@
 \newcounter{exo}
 \newenvironment{exo}[1][]{\refstepcounter{exo}
 \medskip\begin{tcolorbox}[coltitle=black, colframe=blue!50!green!20!white, colback=white, adjusted title=Exercice~\theexo \ifthenelse{\equal{#1}{}}{}{\ (#1)}]}{\end{tcolorbox}\medskip}
+
+% le titre
+\newcommand{\titre}[2]{
+\addcontentsline{toc}{section}{#1}
+\setcounter{theoreme}{0}
+\setcounter{exo}{0}
+\setcounter{defini}{0}
+\setcounter{prop}{0}    
+\begin{center}
+    \Large \color{blue!50!green} \fbox{\begin{minipage}{13cm}
+        \centering #1
+    \end{minipage}}
+    
+    \medskip
+    \normalsize \normalcolor #2
+\end{center}}

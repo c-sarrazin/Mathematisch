@@ -1,4 +1,4 @@
-\titre{Construction de $\mathbb{R}$}{Suites de Cauchy, coupures de Dedekind, théorèmes fondamentaux pour l'analyse}
+\titre{Construction de $\mathbb{R}$ et de $\mathbb{C}$}{Suites de Cauchy, coupures de Dedekind, théorèmes fondamentaux pour l'analyse}
 \subsection{Motivation et suites de Cauchy}
 \subsubsection{Pourquoi $\mathbb{R}$ ?}
 Qu'est ce que l'ensemble des réels ? 
@@ -17,5 +17,153 @@ Comment faire sens alors d'une telle solution ?
 Peut être d'une façon approchée : par exemple, en construisant une suite de rationnels dont le carré converge vers 2. 
 
 \begin{exo}[Méthode de Héron pour l'approximation de $\sqrt{2}$]
-    Help
+    On définit par récurrence la suite rationnelle suivante :
+$$\begin{cases}
+u_0=2\\
+u_{n+1}= \frac{1}{2}(u_n+\frac{2}{u_n})\\
+\end{cases}$$
+\begin{enumerate}[font=\color{blue!50!green}]
+    \item Montrer que $u_n^2>2$.
+    \item Montrer (sans utiliser le théorème de la limite monotone, puisqu'il n'est pas valable pour des suites rationelles) que la suite définie par $v_0=2$ et $v_{n+1}=(\frac{v_n}{2})^2$ tend vers 0.
+    \item Montrer que $u_n^2 \to 2$, en procédant par majoration de $u_n^2-2$ par $v_n$.
+\end{enumerate}
 \end{exo}
+
+Les termes de cette suite sont successivement, en valeur approchée, [...]. Ils semblent être de plus en plus proches les uns des autres. On peut formaliser cette notion.
+
+\begin{defini}
+On dit qu'une suite $(u_n)$ est de Cauchy quand :
+$$\forall \varepsilon > 0, \exists N \in \mathbb{N}, (m \geq N \text{ et } n \geq N) \implies |u_n-u_m| < \varepsilon$$
+Intuitivement, cela veut dire que les termes sont de plus en plus proches deux à deux.
+
+On notera $\mathcal{C}_{\mathbb{Q}}$ l'ensemble des suites de Cauchy rationnelles.
+\end{defini}
+
+\begin{prop}
+Toute suite convergente est de Cauchy.
+\tcblower
+On rappelle que $u_n \to l$ quand :
+$$\forall \varepsilon > 0, \exists N \in \mathbb{N}, n \geq N \implies |u_n-l| < \varepsilon$$
+Soit $u_n \to l$ et $\varepsilon > 0$.
+$$\exists N \in \mathbb{N}, n \geq N \implies l-\varepsilon/2 < u_n < l+\varepsilon/2$$
+Alors si $n \geq N$et $m \geq  N$ :
+$$l-\varepsilon/2 < u_n < l+\varepsilon/2$$
+$$l-\varepsilon/2 < u_m < l+\varepsilon/2$$
+D'où :
+$$-\varepsilon < u_n-u_m < \varepsilon$$
+Autrement dit, $|u_n-u_m|<\varepsilon$ et donc $(u_n)$ est de Cauchy.
+\end{prop}    
+
+On va immédiatemment montrer que la réciproque est fausse dans $\mathbb{Q}$.
+
+\begin{exo}
+La suite $(u_n)$ est celle définie précédemment.
+\begin{enumerate}[font=\color{blue!50!green}]
+\item En se souvenant que $u_n^2>2$, montrer que $(u_n)$ décroit.
+\item En se souvenant que $u_n^2 \to 2$, déduire que $\displaystyle\forall p,\lim_{n\to+\infty} |u_{n+p}-u_n| = 0$.
+\item En conclure que $(u_n)$ est de Cauchy.
+\end{enumerate}
+\end{exo}
+
+Vue depuis le monde rationnel, cette suite n'est pourtant pas convergente, puisque $\sqrt{2}$ est irrationelle. Ceci nous fournit un contre-exemple à la réciproque de la propriété 1. 
+Pourtant, les termes semblent bien se rapprocher "de quelque chose" : ce quelque chose, c'est le nombre réel $\sqrt{ 2 }$, qu'il reste encore à définir.
+
+\subsubsection{Quelques propriétés des suites de Cauchy}
+
+Avant d'attaquer la construction, on montre ici quelques propriétés qu'il sera utile d'avoir en tête :
+
+\begin{prop}
+Toute suite de Cauchy est bornée.
+\tcblower
+Soit $\varepsilon>0$. Il existe un rang $N$ tel que si $n,m \geq N$ alors $|u_n-u_m|<\epsilon$. En particulier, $|u_N-u_n|<\varepsilon$, c'est à dire $u_n \in [u_N - \varepsilon, u_N + \varepsilon]$. Mais alors $\forall n \in \mathbb{N}, u_n \leq \max (\{ u_k | k < N\} \cup \{u_N+\varepsilon\})$, et de même $u_n \geq \min (\{ u_k | k < N\} \cup \{u_N-\varepsilon\})$. Finalement, $(u_n)$ est majorée et minorée, donc bornée.
+\end{prop}
+
+\begin{prop}
+    Toute suite de Cauchy ne convergeant pas vers 0 est non nulle à partir d'un certain rang.
+    \tcblower
+    Supposons l'inverse : pour tout $N \in \mathbb{N}$ aussi grand soit-il, il existe un $n\geq N$ tel que $u_n=0$. Soit $\varepsilon >0$. Il existe $N \in \mathbb{N}$ tel que si $m>N$ et $p>N$, $|u_m-u_p|<\varepsilon$. Soit $n>N$ avec $u_n=0$ : alors $\forall m \geq N$, $|u_m-u_n|<\varepsilon$ soit $|u_m|<\varepsilon$. D'où $u_n \to 0$. 
+\end{prop}
+
+\begin{theoreme}[Analogue au théorème de la limite monotone]
+Toute suite rationnelle monotone bornée est de Cauchy.
+\tcblower
+On fait une démonstration par dichotomie dans le cas croissante et majorée.
+
+Soit $(u_n) \in \mathbb{Q}^{\mathbb{N}}$ croissante et majorée par un rationnel $M$. Pour tout $n$, $u_0\leq u_n \leq M$. On pose $a_0=u_0$ et $b_0=M$.
+
+On va construire par récurrence deux suites :
+\begin{itemize}
+    \item Si $[a_n, \frac{a_n+b_n}{2}]$ contient une infinité de termes de la suite, alors $[\frac{a_n+b_n}{2}, b_n]$ n'en contient aucun. On pose $a_{n+1}=a_n$ et $b_{n+1}=\frac{a_n+b_n}{2}$.
+    \item Sinon, $[\frac{a_n+b_n}{2}, b_n]$ contient tous les termes de la suite à partir d'un certain rang. On pose $a_{n+1}=\frac{a_n+b_n}{2}$ et $b_{n+1}=b_n$.
+\end{itemize}
+
+On a $|a_n-b_n| = \frac{1}{2^n}$.
+
+De plus, par construction, pour tout $n$ il existe un rang $N_n$ à partir duquel tous les termes de la suite sont dans $[a_n, b_n]$. Pour tout $m,p > N_n$ on a donc $|u_m-u_p|<\frac{1}{2^n}$.
+
+Soit maintenant $\varepsilon > 0$. Soit $n$ le plus petit entier tel que $2^n>\frac{1}{\varepsilon}$. Il existe un rang $N$ à partir duquel $|u_m-u_p|<\frac{1}{2^n}$. Mais par définition, $\frac{1}{2^n}<\varepsilon$. D'où finalement, $(u_n)$ est de Cauchy.
+\end{theoreme}
+
+\begin{exo}
+    Reprendre la démonstration ci dessus dans le cas décroissante et minorée, et ainsi achever la démonstration du théorème 1.
+\end{exo}
+
+\subsection{Une construction de $\mathbb{R}$ par les suites de Cauchy}
+\subsubsection{Les réels}
+On rappelle les notions suivantes :
+\begin{defini}
+Une relation d'équivalence sur E est une relation binaire $\sim$ sur E :
+\begin{itemize}
+\item réfléxive ($\forall x\in E, x\sim x$);
+\item transitive ($(x\sim y \land y\sim z) \implies x\sim z$);
+\item symétrique ($x\sim y \iff y\sim x$)
+\end{itemize}
+
+On appelle classe d'équivalence de $x$ l'ensemble noté $[x]=\{y\in E|y\sim x\}$. Remarquons que si $x\sim y$, $[x]=[y]$.
+\end{defini}
+
+\begin{prop}
+    L'ensemble des classes d'équivalence est une partition de E.
+\end{prop}
+
+L'idée est de définir une relation d'équivalence $R$ sur les suites rationnelles :
+$$(a_{n}) R (b_{n}) \iff a_{n}-b_{n} \to 0$$
+On vérifie bien que c'est une relation d'équivalence :
+\begin{itemize}
+    \item $a_n-a_n=0 \to 0$,
+    \item si $a_n-b_n \to 0$, alors $b_n-a_n = -(a_n-b_n) \to -0 =0$,
+    \item si $a_n-b_n \to 0$ et $b_n-c_n \to 0$, alors $a_n-b_n+b_n-c_n = a_n-c_n \to 0$.
+\end{itemize}
+
+On peut donc partitionner $\mathcal{C}_{\mathbb{Q}}$ : cette partition est $\mathbb{R}$. Chaque classe d'équivalence est alors un réel, représenté par toutes les suites rationnelles qui l'approximent.
+
+En identifiant tout rationnel $q$ à la classe d'équivalence de la suite stationnaire dont tous les termes sont égaux à $q$, $\mathbb{Q}\subset \mathbb{R}$.
+
+\subsubsection{Leur structure algébrique}
+On peut ensuite définir les opérations usuelles sur $\mathbb{R}$ :
+\begin{defini}
+    \begin{enumerate}
+        \item $[(a_n)]+[(b_n)]=[(a_n+b_n)]$
+        \item $[(a_{n})]\times [(b_{n})]=[(a_{n}b_{n})]$
+    \end{enumerate}
+ 
+    \tcblower
+    Il faut ici vérifier que quelque soit la suite rationelle qu'on a choisi pour représenter un réel, l'addition et la multiplication donnera le même résultat. Autrement dit :
+    \begin{enumerate}
+        \item Si $(a_n)R(a'_n)$, $[(a_n+b_n)]=[(a'_n+b_n)]$.
+        \item Si $(a_n)R(a'_n)$, $[(a_nb_n)]=[(a'_nb_n)]$.
+    \end{enumerate}
+
+    En effet comme attendu :
+    \begin{enumerate}
+    \item $a_n-a'_n = (a_{n}+b_{n})- (a'_{n}+b_{n})$, donc si $a_n-a'_n \to 0$, $(a_n+b_n)R(a'_n+b_n)$ soit $[(a_n+b_n)]=[(a'_n+b_n)]$.
+    \item Si $a_n-a'_n \to 0$, comme $(b_n)$ est de Cauchy donc bornée, $b_n(a_n-a'_n) \to 0$.  D'où $(a_nb_n)R(a'_nb_n)$ soit $[(a_nb_n)]=[(a'_nb_n)]$.
+    \end{enumerate}
+\end{defini}
+
+On définit de plus une relation d'ordre sur $\mathbb{R}$ :
+\begin{defini}
+Soit $x = [(a_n)] \in \mathbb{R}$. $x$ est positif si $x\neq 0$ et si il existe un rang $N$ tel que $\forall n \geq N, a_n > 0$. 
+\tcblower
+Il faut encore vérifier que cette définition a un sens, c'est à dire que si $a_n-b_n \to 0$ et $(a_n)$ ne tend pas vers 0, si $(a_n)$ finit par n'avoir que des termes positifs, alors $(b_n)$ aussi.
+\end{defini}

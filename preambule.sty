@@ -46,7 +46,7 @@
 
 \newcounter{defini}
 \newenvironment{defini}[1][]{\refstepcounter{defini}
-\begin{tcolorbox}[coltitle=black, colframe=blue!50!green!40!white, colback=white, adjusted title=Définition~\thetheoreme \ifthenelse{\equal{#1}{}}{}{\ (#1)}]}{\end{tcolorbox}}
+\begin{tcolorbox}[coltitle=black, colframe=blue!50!green!40!white, colback=white, adjusted title=Définition~\thedefini \ifthenelse{\equal{#1}{}}{}{\ (#1)}]}{\end{tcolorbox}}
 
 \newcounter{prop}
 \newenvironment{prop}[1][]{\refstepcounter{prop}

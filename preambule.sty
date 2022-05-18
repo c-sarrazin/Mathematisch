@@ -42,15 +42,15 @@
 
 \newcounter{theoreme}
 \newenvironment{theoreme}[1][]{\refstepcounter{theoreme}
-\begin{tcolorbox}[coltitle=black, colframe=blue!50!green!40!white, colback=white, adjusted title=Théorème~\thetheoreme \ifthenelse{\equal{#1}{}}{}{\ (#1)}]}{\end{tcolorbox}}
+\medskip\begin{tcolorbox}[coltitle=black, colframe=blue!50!green!40!white, colback=white, adjusted title=Théorème~\thetheoreme \ifthenelse{\equal{#1}{}}{}{\ (#1)}]}{\end{tcolorbox}\medskip}
 
 \newcounter{defini}
 \newenvironment{defini}[1][]{\refstepcounter{defini}
-\begin{tcolorbox}[coltitle=black, colframe=blue!50!green!40!white, colback=white, adjusted title=Définition~\thedefini \ifthenelse{\equal{#1}{}}{}{\ (#1)}]}{\end{tcolorbox}}
+\medskip\begin{tcolorbox}[coltitle=black, colframe=blue!50!green!40!white, colback=white, adjusted title=Définition~\thedefini \ifthenelse{\equal{#1}{}}{}{\ (#1)}]}{\end{tcolorbox}\medskip}
 
 \newcounter{prop}
 \newenvironment{prop}[1][]{\refstepcounter{prop}
-\begin{tcolorbox}[coltitle=black, colframe=blue!50!green!20!white, colback=white, adjusted title=Propriété~\theprop Pelse{\equal{#1}{}}{}{\ (#1)}]}{\end{tcolorbox}}
+\medskip\begin{tcolorbox}[coltitle=black, colframe=blue!50!green!20!white, colback=white, adjusted title=Propriété~\theprop \ifthenelse{\equal{#1}{}}{}{\ (#1)}]}{\end{tcolorbox}\medskip}
 
 \newcounter{exo}
 \newenvironment{exo}[1][]{\refstepcounter{exo}

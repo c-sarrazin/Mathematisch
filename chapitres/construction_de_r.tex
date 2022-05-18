@@ -165,5 +165,25 @@ On définit de plus une relation d'ordre sur $\mathbb{R}$ :
 \begin{defini}
 Soit $x = [(a_n)] \in \mathbb{R}$. $x$ est positif si $x\neq 0$ et si il existe un rang $N$ tel que $\forall n \geq N, a_n > 0$. 
 \tcblower
-Il faut encore vérifier que cette définition a un sens, c'est à dire que si $a_n-b_n \to 0$ et $(a_n)$ ne tend pas vers 0, si $(a_n)$ finit par n'avoir que des termes positifs, alors $(b_n)$ aussi.
+Il faut encore vérifier que cette définition a un sens, c'est à dire que si $a_n-b_n \to 0$ et $(a_n)$ ne tend pas vers 0, si $(a_n)$ finit par n'avoir que des termes positifs, alors $(b_n)$ aussi. 
+
+Supposons que $\forall N, \exists n \geq N, b_n \leq 0$. $a_n-b_n \to 0$ c'est à dire $\forall \varepsilon >0, \exists N, n \geq N \implies  |a_n-b_n|<\varepsilon$.
+
+Soit $\varepsilon >0$. $\exists N, n \geq N \implies  |a_n-b_n|<\frac{\varepsilon}{2}$. De plus, comme $(a_n)$ est de Cauchy, $\exists N', n, p \geq N' \implies |a_{n}-a_{p}| < \frac{\varepsilon}{2}$.
+
+Enfin, $\exists m \geq \max(N, N'), b_m \leq 0$.  Mais alors comme $b_{m}- \frac{\varepsilon}{2}<a_m<b_{m}+ \frac{\varepsilon}{2}$, $\forall n \geq \max(N, N'), |a_n-a_m|< \frac{\varepsilon}{2}$, $b_m-\varepsilon<a_n<b_m+\varepsilon$ d'où $0<a_n\leq \varepsilon$. D'où $a_n \to 0$. 
 \end{defini}
+
+On achève maintenant la définition de la relation d'ordre :
+\begin{defini}
+    Soit $(x,y)\in \mathbb{R}^2$. On dit que $x\geq y$ si $x-y$ est positif ou si $x=y$.
+    \tcblower
+    C'est bien une relation d'ordre :
+    \begin{itemize}
+        \item $x=x$ donc $x\geq x$,
+        \item antisymétrie
+        \item transitivité 
+    \end{itemize}
+\end{defini}
+
+On peut maintenant montrer que $\mathbb{R}$ est un corps ordonné.

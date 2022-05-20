@@ -5,12 +5,17 @@
 \usepackage[french]{babel}
 \usepackage{amsmath}
 \usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
 \usepackage[landscape, a4paper, left=1cm, top=1cm, right=1cm, bottom=1.7cm]{geometry}
 \usepackage{xcolor}
 \usepackage{tcolorbox}
 \usepackage{enumitem}
 \usepackage{ifthen}
 \usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{stmaryrd}
+
 \setlist[itemize]{itemsep=-1mm, topsep=0pt}
 \setlist[enumerate]{itemsep=-1mm, topsep=0pt}
 \usepackage{multicol}
@@ -45,11 +50,24 @@
 \newenvironment{exo}[1][]{\refstepcounter{exo}
 \medskip\begin{tcolorbox}[coltitle=black, colframe=blue!50!green!20!white, colback=white, adjusted title=Exercice~\theexo \ifthenelse{\equal{#1}{}}{}{\ (#1)}]}{\end{tcolorbox}\medskip}
 
+\newcounter{ex}
+\newenvironment{ex}[1][]{\refstepcounter{ex}
+\medskip\begin{tcolorbox}[coltitle=black, colframe=blue!50!green!20!white, colback=white, adjusted title=Exemple~\theex \ifthenelse{\equal{#1}{}}{}{\ (#1)}]}{\end{tcolorbox}\medskip}
+
+
+\newenvironment{appendice}{
+    \setcounter{subsubsection}{0}
+    \renewcommand{\thesubsubsection}{\thesubsection.\Alph{subsubsection}}
+}{
+    \renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
+}
+
 % le titre
 \newcommand{\titre}[2]{
 \addcontentsline{toc}{section}{#1}
 \setcounter{theoreme}{0}
 \setcounter{exo}{0}
+\setcounter{ex}{0} 
 \setcounter{defini}{0}
 \setcounter{prop}{0}    
 \begin{center}
@@ -60,3 +78,12 @@
     \medskip
     \normalsize \normalcolor #2
 \end{center}}
+
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\Id}{Id}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\K}{\mathbb{K}}
+\let\ker\relax\DeclareMathOperator{\ker}{Ker}

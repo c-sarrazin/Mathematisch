@@ -103,7 +103,6 @@ De plus, par construction, pour tout $n$ il existe un rang $N_n$ à partir duque
 
 Soit maintenant $\varepsilon > 0$. Soit $n$ le plus petit entier tel que $2^n>\frac{1}{\varepsilon}$. Il existe un rang $N$ à partir duquel $|u_m-u_p|<\frac{1}{2^n}$. Mais par définition, $\frac{1}{2^n}<\varepsilon$. D'où finalement, $(u_n)$ est de Cauchy.
 \end{theoreme}
-
 \begin{exo}
     Reprendre la démonstration ci dessus dans le cas décroissante et minorée, et ainsi achever la démonstration du théorème 1.
 \end{exo}
@@ -123,7 +122,7 @@ On appelle classe d'équivalence de $x$ l'ensemble noté $[x]=\{y\in E|y\sim x\}
 \end{defini}
 
 \begin{prop}
-    L'ensemble des classes d'équivalence est une partition de E.
+    L'ensemble des classes d'équivalence est une partition de E. On l'appelle ensemble quotient de $E$ par $\sim$, noté $E/\sim$.
 \end{prop}
 
 L'idée est de définir une relation d'équivalence $R$ sur les suites rationnelles :
@@ -202,6 +201,12 @@ En fait, même si les objets sous-jacents ne sont pas les mêmes - d'une part, d
 \subsubsection{Caractérisations diverses et variées}
 - *Théorème des segments emboités*
 - *Théorème de la limite monotone*
+\begin{theoreme}
+    Toute suite bornée et monotone converge.
+    \tcblower
+    Une première démonstration est donnée directement par son analogue rationnel et la complétude de $\mathbb{R}$.
+    Une deuxième démonstration, plus classique, à partir du principe de la borne supérieure est la suivante :
+\end{theoreme}    
 - *Théorème de Bolzano-Weierstrass*
 - *Équivalences entre ces résultats*
 - *Unicité de $\mathbb{R}$*

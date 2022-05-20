@@ -2,7 +2,7 @@
 \subsection{Une théorie sur des bases frêles}
 \subsubsection{Manipuler des ensenbles}
 Qu'est-ce qu'un ensemble ? Tout, et rien à la fois. C'est un objet formel sur lequel on se donne uniquement une chose : la relation d'appartenance, $\in$.
-Comment alorsen pratique construire et utiliser des ensembles ? On peut penser qu'un ensemble est simplement défini par la donnée d'une propriété, éventuellement en langage naturel : $x\in A \iff$ Quelque chose est vrai de $x$. On verra plus tard que cette approche connaît de graves problèmes qui motiveront une axiomatisation plus rigoureuse de la théorie des ensembles. Mais pour l'instant, elle suffit à explorer quelques notions de base et à introduire du vocabulaire.
+Comment alors en pratique construire et utiliser des ensembles ? On peut penser qu'un ensemble est simplement défini par la donnée d'une propriété, éventuellement en langage naturel : $x\in A \iff$ Quelque chose est vrai de $x$. On verra plus tard que cette approche connaît de graves problèmes qui motiveront une axiomatisation plus rigoureuse de la théorie des ensembles. Mais pour l'instant, elle suffit à explorer quelques notions de base et à introduire du vocabulaire.
 \begin{defini}
 	Soient $A$ et $B$ deux ensembles. On appelle union de $A$ et $B$ l'ensemble $A \cup B=\{x|x\in A \lor x \in B\}$, et intersection de $A$ et $B$ l'ensemble $A\cap B=\{x|x\in A \land x\in B\}$. 
 \end{defini}
@@ -19,7 +19,7 @@ Un poil plus compliqué : définir le produit cartésien $A\times B$, c'est à d
 Cette définition permet de préserver l'ordre de la paire : $(x,y)\neq (y,x)$.
 On peut maintenant définir de façon purement ensembliste une relation binaire
 \begin{defini}[Relation binaire]
-	Soit E un ensemble. On appelle relation binaire $\mathcal{R}$ sur $(E, F)$ (ou si $E=F$, tout simplement sur $E$) un sous ensemble de $E\times F$. On dit que le couple $(x,y)$ de $E\times E$ vérifie la relation $\mathcal{R}$,noté $x\mathcal{R}y$ si et seulement si $(x,y)$ appartient à cet ensemble $\mathcal{R}$.
+	Soit E un ensemble. On appelle relation binaire $\mathcal{R}$ sur $(E, F)$ (ou si $E=F$, tout simplement sur $E$) un sous ensemble de $E\times F$. On dit que le couple $(x,y)$ de $E\times E$ vérifie la relation $\mathcal{R}$, ce qu'on note $x\mathcal{R}y$ quand $(x,y)$ appartient à cet ensemble $\mathcal{R}$.
 \end{defini}
 	
 Intuitivement, une fonction de $E$ dans $F$ est un objet qui à tout $x$ de $E$ associe un unique $y$ de $F$. On formalise ceci à l'aide d'une relation binaire.

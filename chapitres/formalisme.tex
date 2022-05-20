@@ -1,1 +1,24 @@
 \titre{Formalisme et raisonnement}{Un peu de théorie des ensembles}
+\subsection{Relations binaires}
+\begin{defini}[Relation binaire]
+	Soit E un ensemble. On appelle relation binaire $\mathcal{R}$ sur E une condition d'appartenance à un certain sous ensemble de $E\times E$ appelé graphe de la relation $\mathcal{R}$. On dit que le couple $(x,y)$ de $E\times E$ vérifie la relation $\mathcal{R}$,noté $x\mathcal{R}y$ si et seulement si $(x,y)$ appartient au graphe de $\mathcal{R}$.
+\end{defini}
+	\begin{ex}
+    Sur $\N$, $x\mathcal{R}y\iff x<y$ est une relation binaire
+    \end{ex}
+	
+	\begin{defini}[Premières définitions]
+	Soit $\mathcal{R}$ une relation binaire de $E$. On dit que :
+	\begin{itemize}
+		\item $\mathcal{R}$ est \textbf{réflexive} si $\forall x\in E,$ $x\mathcal{R}x$
+		\item $\mathcal{R}$ est \textbf{symétrique} si $\forall (x,y)\in E^2,$ $x\mathcal{R}y\implies y\mathcal{R}x$
+		\item $\mathcal{R}$ est \textbf{antisymétrique} si $\forall (x,y)\in E^2,$ ($x\mathcal{R}y$ et $y\mathcal{R}x$) $\implies x=y$
+		\item $\mathcal{R}$ est \textbf{transitive} si $\forall (x,y,z)\in E^3,$ ($x\mathcal{R}y$ et $y\mathcal{R}z$) $\implies x\mathcal{R}z$
+	\end{itemize}
+\end{defini}
+	\begin{defini}[Relation d'équivalence]
+	On dit qu'une relation binaire $\mathcal{R}$ sur E est une relation d'équivalence si elle est \textbf{réflexive},\textbf{symétrique} et \textbf{transitive}\\
+    \end{defini}
+	\begin{defini}[Relation d'ordre]
+	On dit qu'une relation binaire $\mathcal{R}$ sur E est une relation d'ordre si elle est \textbf{réflexive},\textbf{antisymétrique} et \textbf{transitive}, on note en général $\leq$ plutôt que $\mathcal{R}$
+    \end{defini}

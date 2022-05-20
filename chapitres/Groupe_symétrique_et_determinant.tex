@@ -1,1 +1,237 @@
 \titre{Groupe symétrique et déterminant}{Polynômes caractéristiques, théorème de Cayley-Hamilton}
+\subsection{Le groupe symétrique}
+\begin{defini}[Groupe symétrique (ou groupe des permutations)]
+Pour tout entier naturel $n\geq 1$, on note l'ensemble fini $\N_n=\{1,\dots,n\}=\llbracket 1,n \rrbracket$.\\ On note alors $\mathfrak{S}_n$ ou $\mathcal{S}_n$ le groupe symétrique (ou groupe des permutations) d'indice $n$ qui correspond au groupe de toutes le permutations de $\N_n$, c'est à dire toutes les bijections de $\N_n$ sur lui-même.
+\end{defini}
+
+Une bijection $\sigma$ de $\mathfrak{S}_n$, c'est à dire une permutation, est une application de $\N_n$ dans $\N_n$ représente par \[
+\sigma = 
+\begin{pmatrix}
+    1 & 2 & 3 & \cdots & n-1 & n \\
+    \sigma(1) & \sigma(2) & \sigma(3) & \cdots &  \sigma(n-1)  & \sigma(n)
+\end{pmatrix}
+\]
+Avec $\N_n=\{\sigma(k)\mid k\in \N_n\}$\\
+
+\begin{ex}Dans $\mathfrak{S}_3$ une permutation possible serait :	
+\[
+\sigma = 
+\begin{pmatrix}
+    1 & 2 & 3 \\
+    3 & 1 & 2
+\end{pmatrix}
+\]
+Et alors $\sigma(1)=3$; $\sigma(2)=1$ et $\sigma(3)=2$\\
+Les éléments de l'ensemble de départ étant toujours dans l'ordre on se permet parfois d'écrire uniquement $\sigma=	\begin{pmatrix}
+    3 & 1 & 2
+\end{pmatrix}$ ce qui signifie la même permutation.
+\end{ex}
+
+
+\begin{prop}[Structure de groupe et ordre de $\mathfrak{S}_n$]
+\begin{itemize}
+\item Loi interne de composition: Soit $\sigma$ et $\sigma'$ deux permutations de $\mathfrak{S}_n$,
+alors $\sigma'\circ\sigma$ et une bijection de $\N_n$ dans $\N_n$ par composé et $\sigma'\circ\sigma\in\mathfrak{S}_n$.
+
+\item Élément neutre: Il est facile de voir que la fonction identité est un élément neutre, en effet $\forall k \in \N_n,\Id(k)=k$ et $\sigma\circ\Id(k)=\sigma(k)$ alors $\sigma\circ\Id=\sigma$
+Réciproquement $\forall k \in \N_n,\Id(\sigma(k))=\sigma(k)$ et $\Id\circ\sigma=\sigma$.
+
+\item Existence d'un inverse: Simplement pour toute permutation $\sigma$ on associe $\sigma^{-1}$ la permutation suivante : $\forall k \in \N_n$ $\sigma^{-1}(\sigma(k))=k$ c'est alors une bijection entièrement définie et $\sigma^{-1}\circ\sigma=\Id$. C'est alors la bijection réciproque de $\sigma$ et $\sigma\circ\sigma^{-1}=\Id$
+\end{itemize}
+\end{prop}
+
+\begin{prop}[Cardinal de $\mathfrak{S}_n$]
+L'ordre ou le cardinal de $\mathfrak{S}_n$, noté $\vert \mathfrak{S}_n \vert$ ou Card($\mathfrak{S}_n$) vaut $n!$
+
+En effet une permutation $\sigma$ de $\mathfrak{S}_n$ et entièrement déterminé par le n-uplet $(\sigma(1),\dots,\sigma(n))$, on comprend facilement en commençant par 1, on a $n$ possibilités différentes pour $\sigma(1)$, puis alors $n-1$ pour $\sigma(2)$ car il ne peut plus prendre la valeur prise par $\sigma(1)$, puis $n-2$ possibilités pour $\sigma(3)$ et ainsi de suite.
+On a donc bien $n!$ permutation distinctes dans $\mathfrak{S}_n$.
+\end{prop}
+
+\begin{ex}[$\mathfrak{S}_1$,$\mathfrak{S}_2$, et $\mathfrak{S}_3$]
+\begin{itemize}
+\item Pour $\mathfrak{S}_1$, comme $\N_1=\{1\}$, la seul permutation possible est $\sigma(1)=1$, $\sigma=\Id$ et $\mathfrak{S}_1=\{\Id\}$
+\item Pour $\mathfrak{S}_2$ on a $2!=2$ permutation, trivialement $\sigma=\begin{pmatrix}
+    1 & 2  \\
+    1 & 2  
+\end{pmatrix}=\Id$ et $\sigma'=\begin{pmatrix}
+1 & 2  \\
+2 & 1 
+\end{pmatrix}$\\
+\item Pour $\mathfrak{S}_3$ on a $3!=6$ permutations.
+
+$\Id=\begin{pmatrix}
+1 & 2 & 3  \\
+1 & 2 & 3 
+\end{pmatrix}$, $\sigma=\begin{pmatrix}
+1 & 2 & 3  \\
+3 & 1 & 2 
+\end{pmatrix}$, $\sigma'=\begin{pmatrix}
+1 & 2 & 3  \\
+2 & 3 & 1 
+\end{pmatrix}$, $\tau_1=\begin{pmatrix}
+1 & 2 & 3  \\
+2 & 1 & 3 
+\end{pmatrix}$, $\tau_2=\begin{pmatrix}
+1 & 2 & 3  \\
+1 & 3 & 2 
+\end{pmatrix}$, $\tau_3=\begin{pmatrix}
+1 & 2 & 3  \\
+3 & 2 & 1
+\end{pmatrix}$
+\end{itemize}
+On peut alors se demander si le groupe est commutatif avec par exemple un table de groupe;
+\end{ex}
+
+\begin{ex}[Table de groupe (ou table de Pythagore ou table de Cayley)]
+On va le faire avec $\mathfrak{S}_3$, pour le remplir on calcul les différents produits, on peut aussi utiliser le fait que tout les éléments doivent apparaitre exactement une fois dans chaque ligne ou colonne (comme un sudoku).\\
+Pour les produits de permutation on applique l'une après l'autre.
+
+$\tau_3\circ\sigma'=\begin{pmatrix}
+3 & 2 & 1
+\end{pmatrix}\begin{pmatrix}
+2 & 3 & 1 
+\end{pmatrix}=\begin{pmatrix}
+2 & 3 & 1\\
+3 & 2 & 1 
+\end{pmatrix}=\begin{pmatrix}
+1 & 3 & 2 
+\end{pmatrix}=\tau_2$, (il faut s'entrainer)
+
+Il faut faire suffisamment de calcul pour remplir le reste par sudoku, on obtient la table : 
+\begin{center}
+\noindent\begin{tabular}{c | c c c c c c}
+$\circ$ & $\Id$ & $\tau_1$ & $\tau_2$ & $\tau_3$ & $\sigma$ & $\sigma'$  \\
+\cline{1-7}
+$\Id$ & $\Id$ & $\tau_1$ & $\tau_2$ & $\tau_3$ & $\sigma$ & $\sigma'$ \\
+$\tau_1$ &$\tau_1$ & $\Id$ & $\sigma$ & $\sigma'$ & $\tau_2$ & $\tau_3$ \\
+$\tau_2$ & $\tau_2$ & $\sigma'$ & $\Id$ & $\sigma$ & $\tau_3$ & $\tau_1$ \\
+$\tau_3$ & $\tau_3$ & $\sigma$ & $\sigma'$ & $\Id$ & $\tau_1$ & $\tau_2$ \\
+$\sigma$ & $\sigma$ & $\tau_3$ & $\tau_1$ & $\tau_2$ & $\sigma'$ & $\Id$ \\
+$\sigma'$ & $\sigma'$ & $\tau_2$ & $\tau_3$ & $\tau_1$ & $\Id$ & $\sigma$\\
+\end{tabular}
+\end{center}
+Ce qui se lit l'élément de la ligne fois celui de la colonne. On voit que la table n'est pas symétrique par rapport à la diagonale donc le groupe n'est commutatif.
+\end{ex}
+
+\subsection{Cycles et transpositions}
+\begin{defini}[Cycle]
+Dans $\mathfrak{S}_n$ avec $n\geq 2$, pour $p\geq 2$, $p\in\N_n$ on dit que $\sigma\in\mathfrak{S}_n$ est un cycle de longueur $p$ s'il existe $p$ éléments $a_1,a_2,\dots,a_p$ distincts de $\N_n$ tel que :
+$\sigma(a_1)=a_2$, $\sigma(a_2)=a_3$, $\dots$ , $\sigma(a_{p-1})=a_p$ et $\sigma(a_p)=a_1$
+Et que pour tout élément $b$ de $\N_n\backslash\{a_1,\dots,a_p\}$, $\sigma(b)=b$, on dit que $b$ est invariant $\sigma$.
+L'ensemble $\{a_1,a_2,\dots,a_p\}$ est appelé support du cycle $\sigma$, généralement on écrit ce cycle $(a_1,a_2,\dots,a_p)$.
+
+Dans $\mathfrak{S}_n$, on appelle permutation circulaire un cycle de longueur $n$; càd de support $\N_n$.
+\end{defini}
+
+\begin{ex}
+$\sigma=\begin{pmatrix}
+1 &2 &3 &4 &5 &6 &7\\
+5 &6 & 3 & 1 & 2& 4 & 7\\
+\end{pmatrix}$ est le cycle $\begin{pmatrix}
+1&5&2&6&4
+\end{pmatrix}$
+\end{ex}
+
+\begin{prop}[Sur les cycles]
+\begin{itemize}
+\item l'inverse du cycle $\begin{pmatrix}
+    a_1&a_2&\dots &a_p
+\end{pmatrix}$ vaut $\begin{pmatrix}
+a_p&a_{p-1}&\dots &a_1
+\end{pmatrix}$
+\item Soit $\sigma$ un cycle de longueur $p$ alors $\sigma^p=\Id$, on a fait un tour du cycle.
+On en déduit que pour un entier relatif $m=pq+r$, $\sigma^m=\sigma^r$.
+\item Deux cycle à support disjoint commutent
+\end{itemize}
+\end{prop}
+\begin{defini}[Transposition]
+Dans $\mathfrak{S}_n$ avec $n\geq 2$, on dit que la permutation $\sigma\in\mathfrak{S}_n$ est une transposition si c'est un cycle de longueur 2, c'est à dire qu'il existe $i,j\in\N_n$ distinct tel que $\sigma(i)=j$ et $\sigma(j)=i$ et que $\forall k\in\N_n\backslash\{i,j\}$, $\sigma(k)=k$.\\
+On note souvent cette transposition $\begin{pmatrix}
+i & j
+\end{pmatrix}$ ou $\begin{pmatrix}
+j & i
+\end{pmatrix}$ ou encore $\tau_{i,j}$.
+\end{defini}
+\begin{prop}[Sur les transposition]
+Comme on peut le voir avec la notation $\tau_{i,j}=\tau_{j,i}$, on a aussi facilement $\tau^2_{i,j}=\Id$ et donc $\tau_{i,j}=\tau^{-1}_{i,j}$\\
+\end{prop}
+\begin{theoreme}[Décomposition de permutations]
+    Blabla
+\end{theoreme}
+\begin{theoreme}[Développement d'un déterminant]
+    Blabla
+\end{theoreme}
+Pour une matrice $A\in\mathcal{M}_n(\K)$, $n\geq2$ de terme général $a_{ij}$ de déterminant $\Delta=\det A$, on donne les définitions suivantes :\\
+\begin{defini}[Mineur d'un matrice $A$]
+On appelle mineur $(i,j)$ de $A$ ou mineur de $a_{ij}$ dans $A$ le déterminant souvent noté $\Delta_{ij}$ ou $(\det A)_{ij}$ qui correspond au déterminant de $A$ ou l'on à supprimé la ligne $i$ et la colonne $j$.\\
+\end{defini}
+\begin{defini}[Cofacteur d'une matrice $A$]
+On appelle cofacteur $(i,j)$ de $A$ ou  cofacteur de $a_{ij}$ dans $A$, souvent noté $\gamma_{ij}$ le scalaire  $\gamma_{ij}=(-1)^{i+j}\Delta_{ij}$ avec $\Delta_{ij}$ la mineur $(i,j)$ de $A$.\\
+\end{defini}
+\begin{defini}[Comatrice d'une matrice $A$]
+La comatrice de $A$, noté $\text{Com}(A)$ est la matrice des cofacteurs de $A$, c'est a dire la matrice de terme générale $\gamma_{ij}$.\\
+\end{defini}
+\begin{prop}[Caractérisation suivant les lignes ou les colonnes d'un cofacteur]
+(Rarement utilisé en pratique mais utile pour certaine démonstration),Soit $e=\{e_1,\dots,e_n\}$ une base canonique de $\K^n$, en désignant par $(C_1,C_2,\dots,C_n)$ le système des vecteurs colonnes de $A$ et 
+par $(L_1,L_2,\dots,L_n)$ le système des vecteurs lignes de $A$ on a $\forall i,j\in\N_n$ le cofacteur:
+$$\gamma_{ij}=\det_e(C_1,\dots,C_{j-1},e_i,C_{j+1},\dots,C_n)=\det_e(L_1,\dots,L_{j-1},e_j,L_{j+1},\dots,L_n)$$
+
+
+\tcblower
+
+On part de $D_C=\det_e(C_1,\dots,C_{j-1},e_i,C_{j+1},\dots,C_n)$ pour montrer l'égalité.
+\[D_C=\begin{vmatrix}
+a_{11} & a_{12} & \cdots &a_{1(j-1)}& 0 &a_{1(j+1)}& \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2(j-1)}& 0 &a_{2(j+1)}& \cdots & a_{2n} \\
+\vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots  \\
+a_{(i-1)1} & a_{(i-1)2} & \cdots & a_{(i-1)(j-1)}& 0 &a_{(i-1)(j+1)}& \cdots & a_{(i-1)n} \\
+0&0&\cdots&0&1&0&\cdots&0\\
+a_{(i+1)1} & a_{(i+1)2} & \cdots & a_{(i+1)(j-1)}& 0 &a_{(i+1)(j+1)}& \cdots & a_{(i+1)n} \\
+\vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots  \\
+a_{n1} & a_{n2} & \cdots &a_{n(j-1)}& 0 &a_{n(j+1)}& \cdots & a_{nn} \\
+\end{vmatrix}\] On effectue un premier cycle sur les colonnes $\begin{pmatrix}
+C_n & C_{n-1} & \cdots & C_{j+1} & C_j
+\end{pmatrix}$ de longueur $n-j+1$ donc de signature $(-1)^{n-j}$.
+
+Puis un deuxième sur les lignes $\begin{pmatrix}
+L_n & L_{n-1} & \cdots & L_{i+1} & L_i
+\end{pmatrix}$ de longueur $n-i+1$ donc de signature $(-1)^{n-i}$, la signature totale vaut $(-1)^{n-j+n-i}=(-1)^{-(j+i)}=(-1)^{j+i}$
+On se retrouve alors avec $e_i$ en position $(n,n)$ et des zéros sur le reste de $C_n$ et $L_n$ alors 
+$$D_C=(-1)^{i+j}\begin{vmatrix}
+    a_{11} & a_{12} & \cdots &a_{1(j-1)}&a_{1(j+1)}& \cdots & a_{1n} & 0 \\
+a_{21} & a_{22} & \cdots & a_{2(j-1)} &a_{2(j+1)}& \cdots & a_{2n}&0 \\
+\vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots  \\
+a_{(i-1)1} & a_{(i-1)2} & \cdots & a_{(i-1)(j-1)} &a_{(i-1)(j+1)}& \cdots & a_{(i-1)n} & 0 \\
+a_{(i+1)1} & a_{(i+1)2} & \cdots & a_{(i+1)(j-1)} &a_{(i+1)(j+1)}& \cdots & a_{(i+1)n} & 0\\
+\vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots  \\
+a_{n1} & a_{n2} & \cdots &a_{n(j-1)} &a_{n(j+1)}& \cdots & a_{nn} & 0 \\
+0&0&\cdots&0&0&\cdots&0&1
+\end{vmatrix}=(-1)^{i+j}D'_C$$
+Avec $D'_C$ le nouveau déterminant on calcul $\displaystyle D'_C=\sum_{\sigma\in\mathfrak{S}_n}\varepsilon(\sigma)\prod_{p=1}^n a_{\sigma(p),p}$
+
+Or vu la $n$-ième ligne ou colonne $a_{\sigma(n),n}=0$ si $\sigma(n)\neq n$ et $a_{\sigma(n),n}=1$ si $\sigma(n)= n$.
+
+Or il existe un bijection de $\{\sigma\in\mathfrak{S}_n \text { tel que } \sigma(n)=n\}$ dans $\mathfrak{S}_{n-1}$ : $$ \varphi : \{\sigma\in\mathfrak{S}_n \mid \sigma(n)=n\}\to \mathfrak{S}_{n-1}$$
+$$\sigma\mapsto \begin{pmatrix}
+\N_{n-1}\to\N_{n-1}\\
+i\mapsto \sigma(i)
+\end{pmatrix}$$
+Alors pour tout $\sigma\in \mathfrak{S}_n$ tel que $\sigma(n)=n$ il existe la permutation $\varphi(\sigma)\in\mathfrak{S}_{n-1}$ de décomposition en produit de cycles à support disjoint identique à $\sigma$, alors $\varepsilon(\sigma)=\varepsilon(\varphi(\sigma))$. De plus pour tout $\sigma\in\mathfrak{S}_{n-1}$ on peut associé la permutation $\varphi^{-1}(\sigma)\in\mathfrak{S}_n$ en posant pour $k\in\N_{n-1}$, $\varphi^{-1}(\sigma(k))=\sigma(k)$ et $\varphi^{-1}(\sigma(n))=n$, et $\varepsilon(\sigma)=\varepsilon(\varphi^-1(\sigma))$.
+
+$\displaystyle D'_C=\sum_{\sigma\in\mathfrak{S}_{n-1}}\varepsilon(\sigma)\prod_{p=1}^{n-1} a_{\sigma(p),p}$
+\end{prop}
+\begin{theoreme}[Développement suivant une ligne ou une colonne]
+Toujours pour une matrice $A\in\mathcal{M}_n(\K)$, $n\geq2$ de terme général $a_{ij}$ de déterminant $\Delta=\det A$, en utilisant les notations des définitions précédentes :
+
+Pour tout $i\in\N_n$, on dit que l'on développe le déterminant suivant la $i$-ème ligne avec $\displaystyle \det A=\sum_{j=1}^n (-1)^{i+j}\Delta_{ij}a_{ij}=\sum_{j=1}^n \gamma_{ij}a_{ij}$.
+
+Et pour tout $j\in\N_n$, on dit que l'on développe le déterminant suivant la $j$-ème colonne avec $\displaystyle \det A=\sum_{i=1}^n (-1)^{i+j}\Delta_{ij}a_{ij}=\sum_{j=1}^n \gamma_{ij}a_{ij}$.
+
+\tcblower
+
+Suivant une ligne $i$; soit $e=\{e_1,\dots,e_n\}$ une base canonique de $\K^n$.
+
+$\displaystyle\det A =\det_e(L_1,\dots,L_{i-1},L_{i},L_{i+1},\dots,L_n)$ avec $\displaystyle L_i=\sum_{j=1}^n a_{ij}e_j$
+donc $\displaystyle \det A =\det_e(L_1,\dots,L_{i-1},\sum_{j=1}^n a_{ij}e_j,L_{i+1},\dots,L_n)$ et par $n$-linéarité
+$\displaystyle \det A =\sum_{j=1}^n a_{ij}\det_e(L_1,\dots,L_{i-1},e_j,L_{i+1},\dots,L_n)=\sum_{j=1}^n a_{ij}\gamma_{ij}$.
+\end{theoreme}

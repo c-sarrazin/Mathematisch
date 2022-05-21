@@ -15,6 +15,11 @@
 \usepackage{graphicx}
 \usepackage[hidelinks]{hyperref}
 \usepackage{stmaryrd}
+\usepackage{mathtools}
+
+
+\usepackage[sorting=none]{biblatex}
+\addbibresource{tout.bib}
 
 \setlist[itemize]{itemsep=-1mm, topsep=0pt}
 \setlist[enumerate]{itemsep=-1mm, topsep=0pt}
@@ -54,6 +59,8 @@
 \newenvironment{ex}[1][]{\refstepcounter{ex}
 \medskip\begin{tcolorbox}[coltitle=black, colframe=blue!50!green!20!white, colback=white, adjusted title=Exemple~\theex \ifthenelse{\equal{#1}{}}{}{\ (#1)}]}{\end{tcolorbox}\medskip}
 
+
+\newenvironment{suite}{\addtocounter{prop}{-1}\begin{prop}[Suite]}{\end{prop}}
 
 \newenvironment{appendice}{
     \setcounter{subsubsection}{0}

@@ -15,6 +15,12 @@
 \usepackage{graphicx}
 \usepackage[hidelinks]{hyperref}
 \usepackage{stmaryrd}
+\usepackage{mathtools}
+\usepackage{csquotes}
+
+
+\usepackage[sorting=none]{biblatex}
+\addbibresource{tou.bib}
 
 \setlist[itemize]{itemsep=-1mm, topsep=0pt}
 \setlist[enumerate]{itemsep=-1mm, topsep=0pt}
@@ -55,6 +61,8 @@
 \medskip\begin{tcolorbox}[coltitle=black, colframe=blue!50!green!20!white, colback=white, adjusted title=Exemple~\theex \ifthenelse{\equal{#1}{}}{}{\ (#1)}]}{\end{tcolorbox}\medskip}
 
 
+\newenvironment{suite}{\addtocounter{prop}{-1}\begin{prop}[Suite]}{\end{prop}}
+
 \newenvironment{appendice}{
     \setcounter{subsubsection}{0}
     \renewcommand{\thesubsubsection}{\thesubsection.\Alph{subsubsection}}
@@ -69,7 +77,8 @@
 \setcounter{exo}{0}
 \setcounter{ex}{0} 
 \setcounter{defini}{0}
-\setcounter{prop}{0}    
+\setcounter{prop}{0}
+\setcounter{subsection}{0}    
 \begin{center}
     \Large \color{blue!50!green} \fbox{\begin{minipage}{13cm}
         \centering #1

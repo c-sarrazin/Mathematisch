@@ -66,7 +66,7 @@ La suite $(u_n)$ est celle définie précédemment.
 \end{exo}
 
 Vue depuis le monde rationnel, cette suite n'est pourtant pas convergente, puisque $\sqrt{2}$ est irrationelle. Ceci nous fournit un contre-exemple à la réciproque de la propriété 1. 
-Pourtant, les termes semblent bien se rapprocher "de quelque chose" : ce quelque chose, c'est le nombre réel $\sqrt{ 2 }$, qu'il reste encore à définir.
+Pourtant, les termes semblent bien se rapprocher "de quelque chose" : ce quelque chose, c'est le nombre réel $\sqrt{ 2 }$, qu'il reste encore à définir. \label{motiv}
 
 \subsubsection{Quelques propriétés des suites de Cauchy}
 
@@ -190,29 +190,90 @@ On peut maintenant montrer que $\mathbb{R}$ est un corps ordonné.
 \subsection{Une autre construction de $\mathbb{R}$}
 \subsubsection{Les réels, version 2}
 \subsubsection{Leur structure algébrique}
-\subsubsection{Ces deux constructions se valent : isomorphisme}
-En fait, même si les objets sous-jacents ne sont pas les mêmes - d'une part, des ensembles de suites, d'autre part, des parties de $\mathbb{Q}$ - ce qui importe ici, c'est la structure.
 
 \subsection{Les propriétés fondamentales de $\mathbb{R}$}
-\subsubsection{$\mathbb{R}$ n'est pas dénombrable}
-\subsubsection{La propriété de la borne supérieure}
-\subsubsection{La complétude}
-*Généralisation aux espaces métriques*
-\subsubsection{Caractérisations diverses et variées}
-- *Théorème des segments emboités*
-- *Théorème de la limite monotone*
-\begin{theoreme}
+On suppose au début de cette partie qu'on a bien le droit de parler de $\R$ comme d'un "unique objet", qu'il est été construit à partir des coupures de Dedekind ou des suites de Cauchy. À la fin de cette partie, on montrera qu'elles sont effectivement isomorphes, c'est à dire que d'un point de vue structurel, elles sont parfaitement identiques. On prouvera même mieux : toutes les structures possédant certaines propriétés "$\R$-esques" sont isomorphes. C'est cette unicité à isomorphisme près qui permet à vos camarades un peu moins braves de se passer totalement de la construction de $\R$ et de l'introduire sur le mode axiomatique.
+
+\subsubsection{La complétude, à partir des suites de Cauchy}
+
+On rappelle que la borne supérieure d'une partie d'un ensemble est le plus petit de ses majorants.
+
+\begin{prop}[Caractérisation séquentielle de la borne supérieure]
+    
+\end{prop}
+
+Une première conséquence importante :
+
+\begin{theoreme}[Théorème de la limite monotone] \label{limmono}
     Toute suite bornée et monotone converge.
     \tcblower
-    Une première démonstration est donnée directement par son analogue rationnel et la complétude de $\mathbb{R}$.
-    Une deuxième démonstration, plus classique, à partir du principe de la borne supérieure est la suivante :
-\end{theoreme}    
-- *Théorème de Bolzano-Weierstrass*
-- *Équivalences entre ces résultats*
-- *Unicité de $\mathbb{R}$*
+    On considère $\ell=\sup\{u_n|n\in \N\}$. Soit $\forall\varepsilon > 0$. $\exists n_0 \in \N, \ell-\varepsilon<u_{n_0}\leq \ell$ puisque sinon $\ell-\varepsilon$ serait un majorant de $\{u_n|n\in \N\}$, ce qui est impossible. Mais comme $(u_n)$ est croissante, $\forall n \geq n_0, \ell-\varepsilon < u_n < \ell$. Autrement dit, $u_n \to \ell$.
+\end{theoreme}
 
-En conclusion :
+Une deuxième conséquence importante :
+
+\begin{defini}[Suites adjacentes]
+    Deux suites réelles $(u_n)$ et $(v_n)$ sont dites adjacentes si
+    \begin{itemize}
+        \item L'une est croissante et l'autre décroissante.
+        \item $u_n-v_n$ tend vers 0.
+    \end{itemize}
+\end{defini}
+
+\begin{theoreme}[Théorème des suites adjacentes]
+    Deux suites adjacentes convergent vers la même limite.
+    \tcblower
+    Soient $(a_n)$ et $(b_n)$ deux suites adjacentes, avec $(a_n)$ croissante et $(b_n)$ décroissante.
+    
+    Commençons par montrer que $\forall n \in \N, a_n\leq b_n$. Soit $n\in \N$. Supposons l'inverse. Alors $\forall p > n, b_p\leq b_n<a_n\leq a_p$ et donc  $\forall p > n, |b_p-a_p|>|a_n-b_n|$. Mais comme $|b_p-a_p| \to 0$,  ceci est absurde.
+
+    On sait maintenant que $\forall n \in \N, a_0 \leq a_n \leq b_n \leq b_0$. On peut donc appliquer le \hyperref[limmono]{théorème de la limite monotone} : $(a_n)$ est croissante et majorée par $b_0$ et $(b_n)$ est décroissante et minorée par $a_0$. Les deux suites convergent donc vers $\ell_1$ et $\ell_2$.
+
+    Enfin comme $a_n-b_n \to 0$ $\ell_1-\ell_2=0$ donc les deux suites convergent vers la même limite. 
+\end{theoreme}
+
+On peut enfin montrer que dans $\R$, toute suite de Cauchy converge. On a ainsi bien défini tous les "quelque chose" qu'on évoquait \hyperref[motiv]{en fin de paragraphe 1.1}.
+
+\begin{theoreme}[Critère de Cauchy ou Cauchy-complétude]
+    Toute suite réelle de Cauchy converge.
+    \tcblower
+    Soit $(u_n)$ une suite de Cauchy et $\varepsilon > 0$ :
+    $$\exists N \in \N, p \geq N \implies |u_N-u_p|<\varepsilon$$
+    L'idée de cette preuve est d'encadrer les termes de la suite entre deux suites adjacentes.
+
+    Pour tout $n\in \N$, on pose $a_n = \inf \{u_k|k\geq N\}$ et $b_n = \sup \{u_k|k\geq n\}$. 
+    
+    Comme $\{u_k|k\geq n+1\} \subset \{u_k|k\geq n\}$, on a bien $a_n \leq a_{n+1} \leq b_{n+1} \leq b_n$.
+
+    De plus, soit $\varepsilon \geq 0$ Comme $(u_n)$ est de Cauchy, il existe $N$ tel quel $\forall n \geq N, |u_N-u_n|<\frac{\epsilon}{2}$. On a $\{u_k|k\geq N\} \subset ]u_N-\frac{\varepsilon}{2}, u_N+\frac{\varepsilon}{2}[$ soit $b_N-a_N < \varepsilon$. Mais par croissance/décroissance, $\forall n \geq N, b_n-a_n \leq b_N-a_N < \varepsilon$, d'où $b_n-a_n \to 0$. 
+\end{theoreme}
+
+Cette propriété de $\R$ est importante et se généralise aux espaces métriques.
+
+\begin{defini}[Suite de Cauchy]
+    Soit $(E,d)$ un espace métrique et $(u_n) \in E^{\N}$. $(u_n)$ est de Cauchy quand
+    $$\forall \varepsilon > 0, \exists N \in \N, \forall p, q > N, d(u_p, u_q) < \varepsilon$$
+    \tcblower
+    Avec la distance usuelle sur les nombres rationnels $d(a,b)=|a-b|$ on retrouve bien la précédente définition.
+\end{defini}
+
+\subsubsection{La propriété de la borne supérieure, à partir des coupures de Dedekind}
+
+\subsubsection{Ces deux constructions sont équivalentes}
 \begin{theoreme}[Existence et unicité de $\mathbb{R}$]
     Il existe un corps totalement ordonné vérifiant la propriété de la borne supérieure, unique à isomorphisme près.    
 \end{theoreme}
 
+\subsubsection{$\mathbb{R}$ n'est pas dénombrable}
+Cette dernière partie concerne le cardinal de $\R$. Dans \hyperref[card]{le chapitre 2}, on a établi une théorie général des cardinaux transfinis. On a évoqué l'hypothèse du continu, c'est à dire le problème initialement posé par Cantor sur les cardinaux entre $\aleph_0$, cardinal de $\N$ et $2^{\aleph_0}$, cardinal de $\mathcal{P}(\N)$.
+
+On justifie ici l'appelation "hypothèse du continu" en montrant que $2^{\aleph_0}$ est le cardinal de $\R$.
+
+\begin{theoreme}
+    $\R$ est équipotent à $\mathcal{P}(N)$.
+    \tcblower
+\end{theoreme}
+
+\begin{theoreme}[$\R$ n'est pas dénombrable]
+    La propriété précédente nous permet directement de conclure grâce au théorème de Cantor qu'il n'existe aucune bijection entre $\N$ et $\R$. 
+\end{theoreme}

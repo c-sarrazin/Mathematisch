@@ -4,14 +4,12 @@
 Pour tout entier naturel $n\geq 1$, on note l'ensemble fini $\N_n=\{1,\dots,n\}=\llbracket 1,n \rrbracket$.\\ On note alors $\mathfrak{S}_n$ ou $\mathcal{S}_n$ le groupe symétrique (ou groupe des permutations) d'indice $n$ qui correspond au groupe de toutes le permutations de $\N_n$, c'est à dire toutes les bijections de $\N_n$ sur lui-même.
 \end{defini}
 
-Une bijection $\sigma$ de $\mathfrak{S}_n$, c'est à dire une permutation, est une application de $\N_n$ dans $\N_n$ représente par \[
-\sigma = 
-\begin{pmatrix}
+Une bijection $\sigma$ de $\mathfrak{S}_n$, c'est à dire une permutation, est une application de $\N_n$ dans $\N_n$ représente par
+$$\sigma = \begin{pmatrix}
     1 & 2 & 3 & \cdots & n-1 & n \\
     \sigma(1) & \sigma(2) & \sigma(3) & \cdots &  \sigma(n-1)  & \sigma(n)
-\end{pmatrix}
-\]
-Avec $\N_n=\{\sigma(k)\mid k\in \N_n\}$\\
+\end{pmatrix}$$
+Avec $\N_n=\{\sigma(k)\mid k\in \N_n\}$.
 
 \begin{ex}Dans $\mathfrak{S}_3$ une permutation possible serait :	
 \[
@@ -58,7 +56,7 @@ On a donc bien $n!$ permutation distinctes dans $\mathfrak{S}_n$.
 \end{pmatrix}=\Id$ et $\sigma'=\begin{pmatrix}
 1 & 2  \\
 2 & 1 
-\end{pmatrix}$\\
+\end{pmatrix}$
 \item Pour $\mathfrak{S}_3$ on a $3!=6$ permutations.
 
 $\Id=\begin{pmatrix}
@@ -164,7 +162,7 @@ j & i
 \end{pmatrix}$ ou encore $\tau_{i,j}$.
 \end{defini}
 \begin{prop}[Sur les transposition]
-Comme on peut le voir avec la notation $\tau_{i,j}=\tau_{j,i}$, on a aussi facilement $\tau^2_{i,j}=\Id$ et donc $\tau_{i,j}=\tau^{-1}_{i,j}$\\
+Comme on peut le voir avec la notation $\tau_{i,j}=\tau_{j,i}$, on a aussi facilement $\tau^2_{i,j}=\Id$ et donc $\tau_{i,j}=\tau^{-1}_{i,j}$
 \end{prop}
 \begin{theoreme}[Décomposition de permutations]
     Toute permutation de $\mathfrak{S}_n$(avec $n\geq1$) se décompose en un produit de cycles à supports deux à deux disjoints. Cette décomposition est unique à l'ordre des facteurs près.
@@ -184,15 +182,15 @@ Comme on peut le voir avec la notation $\tau_{i,j}=\tau_{j,i}$, on a aussi facil
 \begin{theoreme}[Développement d'un déterminant]
     Blabla
 \end{theoreme}
-Pour une matrice $A\in\mathcal{M}_n(\K)$, $n\geq2$ de terme général $a_{ij}$ de déterminant $\Delta=\det A$, on donne les définitions suivantes :\\
+Pour une matrice $A\in\mathcal{M}_n(\K)$, $n\geq2$ de terme général $a_{ij}$ de déterminant $\Delta=\det A$, on donne les définitions suivantes :
 \begin{defini}[Mineur d'un matrice $A$]
-On appelle mineur $(i,j)$ de $A$ ou mineur de $a_{ij}$ dans $A$ le déterminant souvent noté $\Delta_{ij}$ ou $(\det A)_{ij}$ qui correspond au déterminant de $A$ ou l'on à supprimé la ligne $i$ et la colonne $j$.\\
+On appelle mineur $(i,j)$ de $A$ ou mineur de $a_{ij}$ dans $A$ le déterminant souvent noté $\Delta_{ij}$ ou $(\det A)_{ij}$ qui correspond au déterminant de $A$ ou l'on à supprimé la ligne $i$ et la colonne $j$.
 \end{defini}
 \begin{defini}[Cofacteur d'une matrice $A$]
-On appelle cofacteur $(i,j)$ de $A$ ou  cofacteur de $a_{ij}$ dans $A$, souvent noté $\gamma_{ij}$ le scalaire  $\gamma_{ij}=(-1)^{i+j}\Delta_{ij}$ avec $\Delta_{ij}$ la mineur $(i,j)$ de $A$.\\
+On appelle cofacteur $(i,j)$ de $A$ ou  cofacteur de $a_{ij}$ dans $A$, souvent noté $\gamma_{ij}$ le scalaire  $\gamma_{ij}=(-1)^{i+j}\Delta_{ij}$ avec $\Delta_{ij}$ la mineur $(i,j)$ de $A$.
 \end{defini}
 \begin{defini}[Comatrice d'une matrice $A$]
-La comatrice de $A$, noté $\text{Com}(A)$ est la matrice des cofacteurs de $A$, c'est a dire la matrice de terme générale $\gamma_{ij}$.\\
+La comatrice de $A$, noté $\text{Com}(A)$ est la matrice des cofacteurs de $A$, c'est a dire la matrice de terme générale $\gamma_{ij}$.
 \end{defini}
 \begin{prop}[Caractérisation suivant les lignes ou les colonnes d'un cofacteur]
 (Rarement utilisé en pratique mais utile pour certaine démonstration),Soit $e=\{e_1,\dots,e_n\}$ une base canonique de $\K^n$, en désignant par $(C_1,C_2,\dots,C_n)$ le système des vecteurs colonnes de $A$ et 
@@ -220,7 +218,7 @@ Puis un deuxième sur les lignes $\begin{pmatrix}
 L_n & L_{n-1} & \cdots & L_{i+1} & L_i
 \end{pmatrix}$ de longueur $n-i+1$ donc de signature $(-1)^{n-i}$, la signature totale vaut $(-1)^{n-j+n-i}=(-1)^{-(j+i)}=(-1)^{j+i}$
 On se retrouve alors avec $e_i$ en position $(n,n)$ et des zéros sur le reste de $C_n$ et $L_n$ alors 
-$$D_C=(-1)^{i+j}\begin{vmatrix}
+{$$D_C=(-1)^{i+j}\begin{vsmallmatrix}
     a_{11} & a_{12} & \cdots &a_{1(j-1)}&a_{1(j+1)}& \cdots & a_{1n} & 0 \\
 a_{21} & a_{22} & \cdots & a_{2(j-1)} &a_{2(j+1)}& \cdots & a_{2n}&0 \\
 \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots  \\
@@ -229,20 +227,25 @@ a_{(i+1)1} & a_{(i+1)2} & \cdots & a_{(i+1)(j-1)} &a_{(i+1)(j+1)}& \cdots & a_{(
 \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots  \\
 a_{n1} & a_{n2} & \cdots &a_{n(j-1)} &a_{n(j+1)}& \cdots & a_{nn} & 0 \\
 0&0&\cdots&0&0&\cdots&0&1
-\end{vmatrix}=(-1)^{i+j}D'_C$$
+\end{vsmallmatrix}=(-1)^{i+j}D'_C$$}
+
 Avec $D'_C$ le nouveau déterminant on calcul $\displaystyle D'_C=\sum_{\sigma\in\mathfrak{S}_n}\varepsilon(\sigma)\prod_{p=1}^n a_{\sigma(p),p}$
 
 Or vu la $n$-ième ligne ou colonne $a_{\sigma(n),n}=0$ si $\sigma(n)\neq n$ et $a_{\sigma(n),n}=1$ si $\sigma(n)= n$.
+\end{prop}
 
+\begin{suite}
 Or il existe un bijection de $\{\sigma\in\mathfrak{S}_n \text { tel que } \sigma(n)=n\}$ dans $\mathfrak{S}_{n-1}$ : $$ \varphi : \{\sigma\in\mathfrak{S}_n \mid \sigma(n)=n\}\to \mathfrak{S}_{n-1}$$
 $$\sigma\mapsto \begin{pmatrix}
 \N_{n-1}\to\N_{n-1}\\
 i\mapsto \sigma(i)
 \end{pmatrix}$$
+
 Alors pour tout $\sigma\in \mathfrak{S}_n$ tel que $\sigma(n)=n$ il existe la permutation $\varphi(\sigma)\in\mathfrak{S}_{n-1}$ de décomposition en produit de cycles à support disjoint identique à $\sigma$, alors $\varepsilon(\sigma)=\varepsilon(\varphi(\sigma))$. De plus pour tout $\sigma\in\mathfrak{S}_{n-1}$ on peut associé la permutation $\varphi^{-1}(\sigma)\in\mathfrak{S}_n$ en posant pour $k\in\N_{n-1}$, $\varphi^{-1}(\sigma(k))=\sigma(k)$ et $\varphi^{-1}(\sigma(n))=n$, et $\varepsilon(\sigma)=\varepsilon(\varphi^-1(\sigma))$.
 
 $\displaystyle D'_C=\sum_{\sigma\in\mathfrak{S}_{n-1}}\varepsilon(\sigma)\prod_{p=1}^{n-1} a_{\sigma(p),p}$
-\end{prop}
+\end{suite}
+
 \begin{theoreme}[Développement suivant une ligne ou une colonne]
 Toujours pour une matrice $A\in\mathcal{M}_n(\K)$, $n\geq2$ de terme général $a_{ij}$ de déterminant $\Delta=\det A$, en utilisant les notations des définitions précédentes :
 

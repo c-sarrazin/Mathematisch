@@ -79,9 +79,16 @@ Soit $\varepsilon>0$. Il existe un rang $N$ tel que si $n,m \geq N$ alors $|u_n-
 \end{prop}
 
 \begin{prop}
-    Toute suite de Cauchy ne convergeant pas vers 0 est non nulle à partir d'un certain rang.
+    \begin{itemize}
+        \item Toute suite de Cauchy $(u_n)$ ne convergeant pas vers 0 est non nulle à partir d'un certain rang.
+        \item Plus fortement, il existe un rationnel $a>0$ et un rang $N$ tel que pour tout $n\geq N, |u_n|>a$.
+    \end{itemize}
+    
     \tcblower
-    Supposons l'inverse : pour tout $N \in \mathbb{N}$ aussi grand soit-il, il existe un $n\geq N$ tel que $u_n=0$. Soit $\varepsilon >0$. Il existe $N \in \mathbb{N}$ tel que si $m>N$ et $p>N$, $|u_m-u_p|<\varepsilon$. Soit $n>N$ avec $u_n=0$ : alors $\forall m \geq N$, $|u_m-u_n|<\varepsilon$ soit $|u_m|<\varepsilon$. D'où $u_n \to 0$. 
+    \begin{itemize}
+        \item Supposons l'inverse : pour tout $N \in \mathbb{N}$ aussi grand soit-il, il existe un $n\geq N$ tel que $u_n=0$. Soit $\varepsilon >0$. Il existe $N \in \mathbb{N}$ tel que si $m>N$ et $p>N$, $|u_m-u_p|<\varepsilon$. Soit $n>N$ avec $u_n=0$ : alors $\forall m \geq N$, $|u_m-u_n|<\varepsilon$ soit $|u_m|<\varepsilon$. D'où $u_n \to 0$.
+        \item Encore une fois, supposons l'inverse : 
+    \end{itemize} 
 \end{prop}
 
 \begin{theoreme}[Analogue au théorème de la limite monotone]
@@ -160,6 +167,19 @@ On peut ensuite définir les opérations usuelles sur $\mathbb{R}$ :
     \end{enumerate}
 \end{defini}
 
+On peut montrer que ceci définit une structure de corps. Tout le côté anneau est impliqué de façon assez mécanique par la structure d'anneau de $\mathcal{C}_\Q$. On montrera simplement la propriété suivante :
+\begin{prop}[Existence d'un inverse]
+    Soit un réel $x = [(x_n) ]\neq 0$. Il existe $y=[(y_n)]$ tel que $xy=1$.
+    \tcblower
+    Comme $(x_n)$ est une suite de Cauchy ne tendant pas vers 0, il existe un rang $N$ à partir duquel aucun de ses termes n'est nul. 
+    
+    On définit donc la suite $(y_n)$ : si $n\geq N$, $y_n = \frac{1}{x_n}$, sinon, $y_n=42$. (Ce 42 n'a en fait aucune importance, puisque ce qui nous intéresse est le comportement d'$(y_n)$ à l'infini.)
+
+    Montrons que cette suite est bien de Cauchy. 
+    
+    Enfin pour tout $n\geq N$, 
+\end{prop}
+
 On définit de plus une relation d'ordre sur $\mathbb{R}$ :
 \begin{defini}
 Soit $x = [(a_n)] \in \mathbb{R}$. $x$ est positif si $x\neq 0$ et si il existe un rang $N$ tel que $\forall n \geq N, a_n > 0$. 
@@ -173,19 +193,14 @@ Soit $\varepsilon >0$. $\exists N, n \geq N \implies  |a_n-b_n|<\frac{\varepsilo
 Enfin, $\exists m \geq \max(N, N'), b_m \leq 0$.  Mais alors comme $b_{m}- \frac{\varepsilon}{2}<a_m<b_{m}+ \frac{\varepsilon}{2}$, $\forall n \geq \max(N, N'), |a_n-a_m|< \frac{\varepsilon}{2}$, $b_m-\varepsilon<a_n<b_m+\varepsilon$ d'où $0<a_n\leq \varepsilon$. D'où $a_n \to 0$. 
 \end{defini}
 
-On achève maintenant la définition de la relation d'ordre :
-\begin{defini}
-    Soit $(x,y)\in \mathbb{R}^2$. On dit que $x\geq y$ si $x-y$ est positif ou si $x=y$.
-    \tcblower
-    C'est bien une relation d'ordre :
+On peut maintenant montrer que $\mathbb{R}$ est un corps ordonné, dont on rappelle la définition :
+\begin{defini}[Corps ordonné]
+    Un corps $(\K, +, \times)$ est dit ordonné quand il existe une partie $P$ de $\K$ - les éléments de $P$ sont dits positifs - telle que :
     \begin{itemize}
-        \item $x=x$ donc $x\geq x$,
-        \item antisymétrie
-        \item transitivité 
+        \item Pour tout $x\in \K$, soit $x\in P$, soit $x=0$, soit $-x\in P$.
+        \item Si $(x,y)\in P^2$, $x+y \in P$ et $x\times y \in P$.
     \end{itemize}
 \end{defini}
-
-On peut maintenant montrer que $\mathbb{R}$ est un corps ordonné.
 
 \subsection{Une autre construction de $\mathbb{R}$}
 \subsubsection{Les réels, version 2}

@@ -44,10 +44,10 @@
   <internal package="biblatex" priority="9" active="0">
     <generic>latex</generic>
     <provides type="dynamic">
-      <file>index.bcf</file>
+      <file>tester.bcf</file>
     </provides>
     <requires type="dynamic">
-      <file>index.bbl</file>
+      <file>tester.bbl</file>
     </requires>
     <requires type="static">
       <file>blx-dm.def</file>
@@ -64,19 +64,19 @@
     <generic>biber</generic>
     <cmdline>
       <binary>biber</binary>
-      <infile>index</infile>
+      <infile>tester</infile>
     </cmdline>
     <input>
-      <file>index.bcf</file>
+      <file>tester.bcf</file>
     </input>
     <output>
-      <file>index.bbl</file>
+      <file>tester.bbl</file>
     </output>
     <provides type="dynamic">
-      <file>index.bbl</file>
+      <file>tester.bbl</file>
     </provides>
     <requires type="dynamic">
-      <file>index.bcf</file>
+      <file>tester.bcf</file>
     </requires>
     <requires type="editable">
       <file>tou.bib</file>

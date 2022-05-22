@@ -1,8 +1,14 @@
 ## Mise en forme/organisation
-- [x] Hyperliens TdM
-- [x] Changer la numérotation des sections dans les chapitres (0.1 -> 1)
-- [-] Éventuellement changer la profondeur de la table des matières générale
-- [ ] Recopier chapitre de Thomas
-- [x] Retrouver un nom
+- [?] Transfer ownership git repo
 
 ## Sur le fond
+### Sur le "formalisme"
+- [ ] Théorème de Cantor-Bernstein
+- [ ] ZFC
+- [ ]
+### Pour la construction de R
+- [ ] Coupures de Dedekind
+- [ ] Chapitre structures : aller jusqu'au corps ordonné
+- [ ] Chapitre topologie : limite, espace métrique, opérations sur les limites rationnelles
+- [ ] Preuves équivalence (fin)
+- [ ] Preuve isomorphisme

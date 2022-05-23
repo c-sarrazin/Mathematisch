@@ -204,7 +204,44 @@ On peut maintenant montrer que $\mathbb{R}$ est un corps ordonné, dont on rappe
 
 \subsection{Une autre construction de $\mathbb{R}$}
 \subsubsection{Les réels, version 2}
+
+On peut aussi voir le réel $\sqrt{2}$ comme la borne supérieure de l'ensemble $\{x\in \Q | a<0 \lor x^2<2\}$, ou la borne inférieure de l'ensemble $\{x\in \Q | a>0 \land x^2>2\}$.
+
+Ces deux ensembles forment ce qu'on appelle une coupure de Dedekind :
+\begin{defini}
+    Soit $(A, B)$ un couple de parties de $\Q$. C'est une coupure de Dedekind quand :
+    \begin{itemize}
+        \item $A\cap B = \varnothing$
+        \item $A\cup B = \Q$
+        \item Pour tout $(x,y) \in A\times B, x<y$.
+        \item B ne possède pas de borne inférieure. 
+    \end{itemize}
+\end{defini}
+
+$\R$ est l'ensemble de ces coupures.
+
+On identifie tout rationnel $q$ à une coupure, $(\{x\in \Q | x \leq q\}, \{x\in \Q | x > q\})$. On voit que le quatrième point a pour effet (c'est en fait son seul intérêt) d'exclure les couples $(\{x\in \Q | x < q\}, \{x\in \Q | x  \geq q\})$ de $\R$, ce qui permet de bien définir la coupure associée à un rationnel.
+
+Avec cette identification, comme précédemment $\Q \subset \R$.
+
 \subsubsection{Leur structure algébrique}
+
+On peut comme précédemment définir addition et multiplication, puis montrer que $\R$ a une structure de corps ordonné.
+
+\begin{defini}[Addition]
+    Soient $(A, B)$ et $(A', B')$ deux coupures. On définit l'ensemble $A+A'=\{x+y | (x,y) \in A \times A'\}$.
+    
+    Alors $(A+A', \Q\backslash A+A')$ est une coupure.
+    \tcblower
+    \begin{itemize}
+        \item Évidemment $A+A'\cap \Q\backslash A+A'=\varnothing$ et $A+A'\cup \Q\backslash A+A'=\Q$.
+        \item Soit $x\in A+A'=a+a'$ et $y\in\Q\backslash A+A'$. Évidemment $x\neq y$. Supposons $x>y$, alors $a>y-a'$. Mais alors $y-a' \in A$, et donc $y-a'+a'=y\in A+A'$. Comme on avait défini $y\in\Q\backslash A+A'$, c'est impossible.
+    \end{itemize}
+\end{defini}
+
+\begin{defini}[Multiplication]
+    
+\end{defini}
 
 \subsection{Les propriétés fondamentales de $\mathbb{R}$}
 On suppose au début de cette partie qu'on a bien le droit de parler de $\R$ comme d'un "unique objet", qu'il est été construit à partir des coupures de Dedekind ou des suites de Cauchy. À la fin de cette partie, on montrera qu'elles sont effectivement isomorphes, c'est à dire que d'un point de vue structurel, elles sont parfaitement identiques. On prouvera même mieux : toutes les structures possédant certaines propriétés "$\R$-esques" sont isomorphes. C'est cette unicité à isomorphisme près qui permet à vos camarades un peu moins braves de se passer totalement de la construction de $\R$ et de l'introduire sur le mode axiomatique.
@@ -271,6 +308,17 @@ Cette propriété de $\R$ est importante et se généralise aux espaces métriqu
     \tcblower
     Avec la distance usuelle sur les nombres rationnels $d(a,b)=|a-b|$ on retrouve bien la précédente définition.
 \end{defini}
+
+\begin{defini}[Espace métrique complet]
+    Un espace métrique est dit complet quand toute suite de Cauchy y converge.
+\end{defini}
+
+\begin{ex}
+    $\R^n$ est complet.
+    \tcblower
+\end{ex}
+
+
 
 \subsubsection{La propriété de la borne supérieure, à partir des coupures de Dedekind}
 

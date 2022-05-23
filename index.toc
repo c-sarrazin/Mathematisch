@@ -1,0 +1,35 @@
+\babel@toc {french}{}\relax 
+\contentsline {section}{Formalisme et raisonnement}{2}{section*.2}%
+\contentsline {subsection}{\numberline {1}Une théorie sur des bases frêles}{2}{subsection.0.1}%
+\contentsline {subsubsection}{\numberline {1.1}Manipuler des ensenbles}{2}{subsubsection.0.1.1}%
+\contentsline {subsubsection}{\numberline {1.2}Familles et applications}{3}{subsubsection.0.1.2}%
+\contentsline {subsubsection}{\numberline {1.3}Relation d'ordre et d'équivalence}{3}{subsubsection.0.1.3}%
+\contentsline {subsection}{\numberline {2}Axiomatisation de Zermelo-Frankel (ZFC)}{3}{subsection.0.2}%
+\contentsline {subsubsection}{\numberline {2.1}Motivation : un inventaire de paradoxes}{3}{subsubsection.0.2.1}%
+\contentsline {subsubsection}{\numberline {2.2}Zoom sur l'axiome du choix}{3}{subsubsection.0.2.2}%
+\contentsline {section}{Entiers, principe de récurrence et suites}{4}{subsubsection.0.2.2}%
+\contentsline {section}{Structures algébriques}{4}{subsubsection.0.2.2}%
+\contentsline {section}{Polynômes}{4}{subsubsection.0.2.2}%
+\contentsline {section}{Arithmétique}{4}{subsubsection.0.2.2}%
+\contentsline {section}{Limites et continuité}{4}{subsubsection.0.2.2}%
+\contentsline {section}{Construction de $\mathbb {R}$ et de $\mathbb {C}$}{5}{subsubsection.0.2.2}%
+\contentsline {subsection}{\numberline {1}Motivation et suites de Cauchy}{5}{subsection.0.1}%
+\contentsline {subsubsection}{\numberline {1.1}Pourquoi $\mathbb {R}$ ?}{5}{subsubsection.0.1.1}%
+\contentsline {subsubsection}{\numberline {1.2}Quelques propriétés des suites de Cauchy}{6}{subsubsection.0.1.2}%
+\contentsline {subsection}{\numberline {2}Une construction de $\mathbb {R}$ par les suites de Cauchy}{6}{subsection.0.2}%
+\contentsline {subsubsection}{\numberline {2.1}Les réels}{6}{subsubsection.0.2.1}%
+\contentsline {subsubsection}{\numberline {2.2}Leur structure algébrique}{7}{subsubsection.0.2.2}%
+\contentsline {subsection}{\numberline {3}Une autre construction de $\mathbb {R}$}{8}{subsection.0.3}%
+\contentsline {subsubsection}{\numberline {3.1}Les réels, version 2}{8}{subsubsection.0.3.1}%
+\contentsline {subsubsection}{\numberline {3.2}Leur structure algébrique}{8}{subsubsection.0.3.2}%
+\contentsline {subsection}{\numberline {4}Les propriétés fondamentales de $\mathbb {R}$}{8}{subsection.0.4}%
+\contentsline {subsubsection}{\numberline {4.1}La complétude, à partir des suites de Cauchy}{8}{subsubsection.0.4.1}%
+\contentsline {subsubsection}{\numberline {4.2}La propriété de la borne supérieure, à partir des coupures de Dedekind}{9}{subsubsection.0.4.2}%
+\contentsline {subsubsection}{\numberline {4.3}Ces deux constructions sont équivalentes}{9}{subsubsection.0.4.3}%
+\contentsline {subsubsection}{\numberline {4.4}$\mathbb {R}$ n'est pas dénombrable}{9}{subsubsection.0.4.4}%
+\contentsline {section}{Dérivation}{10}{theoreme.7}%
+\contentsline {section}{Intégration}{10}{theoreme.7}%
+\contentsline {section}{Convergence et analyse asymptotique}{10}{theoreme.7}%
+\contentsline {section}{Groupe symétrique et déterminant}{11}{theoreme.1}%
+\contentsline {subsection}{\numberline {1}Le groupe symétrique}{11}{subsection.0.1}%
+\contentsline {subsection}{\numberline {2}Cycles et transpositions}{12}{subsection.0.2}%

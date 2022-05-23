@@ -121,7 +121,7 @@ Ce qui se lit l'élément de la ligne fois celui de la colonne. On voit que la t
 \begin{defini}[Cycle]
 Dans $\mathfrak{S}_n$ avec $n\geq 2$, pour $p\geq 2$, $p\in\N_n$ on dit que $\sigma\in\mathfrak{S}_n$ est un cycle de longueur $p$ s'il existe $p$ éléments $a_1,a_2,\dots,a_p$ distincts de $\N_n$ tel que :
 $\sigma(a_1)=a_2$, $\sigma(a_2)=a_3$, $\dots$ , $\sigma(a_{p-1})=a_p$ et $\sigma(a_p)=a_1$
-Et que pour tout élément $b$ de $\N_n\backslash\{a_1,\dots,a_p\}$, $\sigma(b)=b$, on dit que $b$ est invariant $\sigma$.
+Et que pour tout élément $b$ de $\N_n\backslash\{a_1,\dots,a_p\}$, $\sigma(b)=b$, on dit que $b$ est invariant par $\sigma$.
 L'ensemble $\{a_1,a_2,\dots,a_p\}$ est appelé support du cycle $\sigma$, généralement on écrit ce cycle $(a_1,a_2,\dots,a_p)$.
 
 Dans $\mathfrak{S}_n$, on appelle permutation circulaire un cycle de longueur $n$; càd de support $\N_n$.
@@ -164,7 +164,8 @@ j & i
 \begin{prop}[Sur les transposition]
 Comme on peut le voir avec la notation $\tau_{i,j}=\tau_{j,i}$, on a aussi facilement $\tau^2_{i,j}=\Id$ et donc $\tau_{i,j}=\tau^{-1}_{i,j}$
 \end{prop}
-\begin{theoreme}[Décomposition de permutations]
+
+\begin{theoreme}[Décomposition de permutations en produit de cycle]
     Toute permutation de $\mathfrak{S}_n$(avec $n\geq1$) se décompose en un produit de cycles à supports deux à deux disjoints. Cette décomposition est unique à l'ordre des facteurs près.
     
     \tcblower
@@ -172,12 +173,18 @@ Comme on peut le voir avec la notation $\tau_{i,j}=\tau_{j,i}$, on a aussi facil
     
     Pour $n=1$, la seule permutation est l'identité, c'est le cycle à $1$ éléments
 
-    Soit $n$ tel que $\forall k\in\N_n$, $\mathcal{H}_k$.Soit $\sigma\in\mathfrak{S}_{n+1}$, on pose $A=\{\sigma^k(1)\mid k\in\N\}$ le support de $1$ par $\sigma$ et $B=\N_{n+1}\backslash A$
+    Soit $n$ tel que $\forall k\in\N_n$, $\mathcal{H}_k$.Soit $\sigma\in\mathfrak{S}_{n+1}$, on pose $A=\{\sigma^k(1)\mid k\in\N\}$ le support de $1$ par $\sigma$ et $B=\N_{n+1}\backslash A$.
+
     $A$ est un sous-ensemble de $\N_{n+1}$, il est donc de cardinal fini. Donc il existe une infinité d'entier $k\in\N$ tel que $\exists k'\in\llbracket 1,k-1\rrbracket,\sigma^{k'}(1)=\sigma^k(1)$.
-    Comme tout sous-ensemble de $\N$ admet un plus petit élément, on peu posé $p$ le plus petit entier vérifiant $\exists p'\in\llbracket 1,p-1\rrbracket,\sigma^{p'}(1)=\sigma^p(1)$. On montre alors que $\sigma^p(1)=1$, en effet si $p\geq 1,\sigma\circ\sigma^{p'-1}(1)=\sigma\circ\sigma^{p-1}(1)$ et par injectivité $\sigma^{p'-1}(1)=\sigma^{p-1}(1)$ ce qui contredit le caractère minimal de $p$.
+    Comme tout sous-ensemble de $\N$ admet un plus petit élément, on peu posé $p$ le plus petit entier vérifiant $\exists p'\in\llbracket 1,p-1\rrbracket,\sigma^{p'}(1)=\sigma^p(1)$. On montre alors que $\sigma^p(1)=1$, en effet si $p'\geq 1,\sigma\circ\sigma^{p'-1}(1)=\sigma\circ\sigma^{p-1}(1)$ et par injectivité $\sigma^{p'-1}(1)=\sigma^{p-1}(1)$ ce qui contredit le caractère minimal de $p$.
     On se retrouve finalement avec $A=\{\sigma^k(1)\mid k\in\N_{p-1}\}$, on pose $c=(1,\sigma(1),\sigma^2(1),\dots,\sigma^{p-1}(1))$, et donc $\forall x\in A, c(x)=\sigma(x)$.
     Alors si $A=\N_{n+1}$, c'est à dire Card$(A)=n+1$, $c$ est un cycle donc on a $\mathcal{H}_{n+1}$
-    Sinon on a $1\leq$Card$(B\N_{n+1}\backslash A)\leq n$ car $1$ est forcement dans $A$, et $B$ invariant par $c$. On considérant $\sigma'$ la restriction de $\sigma$ à $B$, $\sigma'\in\mathfrak{S}_n$ et par hypothèse de récurrences $\sigma'$ se décompose en produit de cycle à support disjoint.
+    Sinon on a $1\leq$Card$(B=\N_{n+1}\backslash A)\leq n$ car $1$ est forcement dans $A$, et $B$ invariant par $c$. On considérant $\sigma'$ la restriction de $\sigma$ à $B$, $\sigma'\in\mathfrak{S}_k$ avec $k\in\N_n$ car $\sigma'$ est injective comme restriction d'une application injective et $\sigma'(B)\subset B$, $k$ représente le cardinal de $B$ et par hypothèse de récurrences $\sigma'$ se décompose en produit de cycle à support disjoint notons les $c_2,\dots c_i$.
+    Finalement $\sigma=c_1\circ c_2\circ\dots\circ c_i$ et $\mathcal{H}_{n+1}$
+    
+\end{theoreme}
+\begin{theoreme}[Décomposition de cycle en produit de transposition]
+    
 \end{theoreme}
 \begin{theoreme}[Développement d'un déterminant]
     Blabla

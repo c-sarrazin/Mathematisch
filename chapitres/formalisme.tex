@@ -1,33 +1,4 @@
-\titre{Formalisme et raisonnement}{Un peu de théorie des ensembles}
-\subsection{Quelques préliminaires}
-\subsubsection{L'alphabet grec}
-Il n'est pas inutile de connaître cette table pour savoir lire les énoncés (et éviter de passer pour un âne).
-\begin{center}
-\begin{tabular}{|lll|}
-\hline
-\begin{tabular}[c]{@{}l@{}}$\alpha$ A alpha\\ $\beta$ B bêta\\ $\gamma$ $\Gamma$ gamma\\ $\delta$ $\Delta$ delta\\ $\varepsilon$ E epsilon\\ $\zeta$ Z dzeta\\ $\eta$ H êta \\ $\theta$ $\Theta$ thêta\end{tabular}
- & \begin{tabular}[c]{@{}l@{}}$\iota$ I iota\\ $\kappa$ K kappa\\ $\lambda$ $\Lambda$ lambda\\ $\mu$ M mu\\ $\nu$ N nu\\ $\xi$ $\Xi$ xi\\ o O omicron\\ $\pi$ $\Pi$ pi\end{tabular} 
- & \begin{tabular}[c]{@{}l@{}}$\rho$ P rhô\\ $\sigma$ $\Sigma$ sigma\\ $\tau$ T tau\\ $\upsilon$ Y upsilon\\ $\phi$ $\Phi$ phi\\ $\chi$ X khi\\ $\psi$ $\Psi$ psi\\ $\omega$ $\Omega$ oméga\end{tabular} \\
-\hline \end{tabular}
-\end{center}
-\subsubsection{Raisonnement}
-Si $P$ et $Q$ sont deux propositions écrites en "langage mathématique", on a la table suivante, où V signifie vrai et F faux. (Exemple de lecture : si $P$ est vrai et $Q$ est vrai, $P\iff Q$ est vrai)
-\begin{center}
-    \arrayrulecolor[rgb]{0.502,0.502,0.502}
-    \begin{tabular}{!{\color{black}\vrule}c!{\color{black}\vrule}c!{\color{black}\vrule}c|c|c|c|c!{\color{black}\vrule}} 
-    \arrayrulecolor{black}\hline
-    $P$ & $Q$ & $P \land Q $ & $P \lor Q$ & $P \implies Q$ & $P \iff Q$ & $\lnot P$  \\ 
-    \hline
-    V   & V   & V            & V          & V              & V          & F          \\ 
-    \arrayrulecolor[rgb]{0.502,0.502,0.502}\hline
-    V   & F   & F            & V          & F              & F          & F          \\ 
-    \hline
-    F   & V   & F            & V          & V              & F          & V          \\ 
-    \hline
-    F   & F   & F            & F          & V              & V          & V          \\
-    \arrayrulecolor{black}\hline
-    \end{tabular}
-\end{center}
+\titre{Un peu de théorie des ensembles}{Théorie des ensembles naïve et ZFC}
 \subsection{Une théorie sur des bases frêles}
 \subsubsection{Manipuler des ensenbles}
 Qu'est-ce qu'un ensemble ? Tout, et rien à la fois. C'est un objet formel sur lequel on se donne uniquement une chose : la relation d'appartenance, $\in$.
@@ -41,23 +12,25 @@ Comment alors en pratique construire et utiliser des ensembles ? On peut penser 
 \begin{defini}
 	Soit $A\subset B$. On appelle complémentaire de $A$ dans $B$ l'ensemble $B\backslash A = \{x\in B | \lnot x\in A\}$
 \end{defini}
-Un poil plus compliqué : définir le produit cartésien $A\times B$, c'est à dire l'ensemble des couples $(x,y)$ avec $x\in A$ et $y\in B$. Pour ce faire, il faut trouver une façon purement ensembliste de définir un couple ordonné (sachant qu'un ensemble n'est justement pas ordonné). Une des solutions possibles:
+Un poil plus compliqué : définir le produit cartésien $A\times B$. Pour ce faire, il faut trouver une façon purement ensembliste de définir un couple ordonné (sachant qu'un ensemble n'est justement pas ordonné). Une des solutions possibles:
 \begin{defini}[Couples de Kuratowski]
 	On note couple $(x,y)$ l'ensemble $\{x, \{x,y\}\}$.
 \end{defini}
 Cette définition permet de préserver l'ordre de la paire : $(x,y)\neq (y,x)$.
-On peut maintenant définir de façon purement ensembliste une relation binaire
+\begin{defini}
+	Le produit cartésien de deux ensembles $A$ et $B$, noté $A\times B$, est l'ensemble des couples $(x,y)$ avec $x\in A$ et $y\in B$.
+\end{defini}
+
+On peut maintenant définir de façon purement ensembliste une relation binaire. 
 \begin{defini}[Relation binaire]
-	Soit E un ensemble. On appelle relation binaire $\mathcal{R}$ sur $(E, F)$ (ou si $E=F$, tout simplement sur $E$) un sous ensemble de $E\times F$. On dit que le couple $(x,y)$ de $E\times F$ vérifie la relation $\mathcal{R}$, ce qu'on note $x\mathcal{R}y$ quand $(x,y)$ appartient à cet ensemble $\mathcal{R}$.
+	Soit E un ensemble. On appelle relation binaire $\mathcal{R}$ sur $(E, F)$ (ou si $E=F$, tout simplement sur $E$) un sous ensemble de $E\times F$. On dit que le couple $(x,y)$ de $E\times F$ vérifie la relation $\mathcal{R}$, ce qu'on note $x\mathcal{R}y$, quand $(x,y)$ appartient à cet ensemble $\mathcal{R}$.
 \end{defini}
 	
-Intuitivement, une fonction de $E$ dans $F$ est un objet qui à tout $x$ de $E$ associe un unique $y$ de $F$. On formalise ceci à l'aide d'une relation binaire.
+Intuitivement, une fonction de $E$ dans $F$ est un objet qui à tout $x$ de $E$ associe un unique $y$ de $F$. On formalise ceci à l'aide d'une relation binaire ayant une certaine propriété.
 
 \begin{defini}
-	Soit $\phi$ une relation binaire sur $(E,F)$. $f$ est une application quand $\forall(x,y,z)x\phi y \land x\phi z \implies y=z$. On notera à l'avenir $\phi(x)=y$.
+Soit $\phi$ une relation binaire sur $(E,F)$. $f$ est une application de $E$ dans $F$ quand $\forall(x,y,z)x\phi y \land x\phi z \implies y=z$. On notera à l'avenir $\phi(x)=y$. L'unicité de l'image est essentielle pour que cette notation est un sens : si  $\phi(x)=y$ et  $\phi(x)=z$, alors $y=z$.
 \end{defini}
-
-Toutes les relations binaires ne sont pas des applications. Une application doit associer à tout élément une image unique.
 
 On définit encore diverses propriétés sur ces relations. 
 
@@ -78,6 +51,31 @@ On définit encore diverses propriétés sur ces relations.
     \end{defini}
 
 \subsubsection{Familles et applications}
+
+On revient maintenant aux applications.
+\begin{defini}
+	Soit $f: E \to F$ une application.
+	\begin{itemize}
+		\item $f$ est injective (ou est une injection) quand $\forall (x,y) \in E^2, f(x)=f(y) \implies x=y$.
+		\item $f$ est surjective (ou est une surjection) quand $\forall x \in F, \exists y \in E, f(y)=x$.
+		\item $f$ est bijective (ou est une bijection) quand elle est injective et surjective.
+	\end{itemize}
+\end{defini}
+
+\begin{defini}
+	On dit que deux ensembles sont équipotents si il existe une bijection de l'un dans l'autre.
+\end{defini}
+
+Cette notion d'équipotence est la "bonne" notion pour définir le cardinal (la "taille") d'un ensemble, comme on le verra plus tard.  
+
+\begin{theoreme}[Théorème de Cantor-Bernstein]
+	Soient $E$ et $F$ deux ensembles. Si il existe une injection de $E$ dans $F$ et une injection de $F$ dans $E$, alors $E$ et $F$ sont équipotents.
+\end{theoreme}
+
+\begin{theoreme}[Théorème de Cantor]
+	Soit $E$ un ensemble. $E$ et $\mathcal{P}(E)$ ne sont pas équipotents.
+\end{theoreme}
+
 \subsubsection{Relation d'ordre et d'équivalence}
 
 \subsection{Axiomatisation de Zermelo-Frankel (ZFC)}

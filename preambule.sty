@@ -60,6 +60,8 @@
 \newenvironment{ex}[1][]{\refstepcounter{ex}
 \medskip\begin{tcolorbox}[coltitle=black, colframe=blue!50!green!20!white, colback=white, adjusted title=Exemple~\theex \ifthenelse{\equal{#1}{}}{}{\ (#1)}]}{\end{tcolorbox}\medskip}
 
+\newenvironment{boite}[1]{\medskip\begin{tcolorbox}[coltitle=black, colframe=blue!50!green!20!white, colback=white, adjusted title=#1]}{\end{tcolorbox}\medskip}
+
 
 \newenvironment{suite}{\addtocounter{prop}{-1}\begin{prop}[Suite]}{\end{prop}}
 

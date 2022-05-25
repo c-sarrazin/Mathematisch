@@ -96,6 +96,17 @@ Cette notion d'équipotence est la "bonne" notion pour définir le cardinal (la 
 
 \begin{theoreme}[Théorème de Cantor]
 	Soit $E$ un ensemble. $E$ et $\mathcal{P}(E)$ ne sont pas équipotents.
+	\tcblower
+	Soit $f : E \to \mathcal{P}(E)$. Montrons que $f$ n'est pas surjective.
+
+	Soit $F=\{x\in E|x\not \in f(x)\}$. Soit $x\in E$, deux cas se présentent :
+	\begin{itemize}
+		\item $x\in B$, alors $x\not\in f(x)$ et donc $x\in B\backslash f(x)$. D'où $B\backslash f(x)\neq\varnothing$ et donc $B\neq f(x)$.
+		\item $\not \in B$, alors $x\in f(x)$ et donc $x\in f(x)\backslash B$. D'où $f(x)\backslash B\neq\varnothing$ et donc $B\neq f(x)$.
+	\end{itemize}
+	Finalement, $x$ ne peut être un antécédent pour $E$. Donc $E$ n'a pas d'antécédent et $f$ n'est pas surjective, donc pas bijective.
+
+	On peut en bonus montrer qu'il n'y a pas d'injection de $\mathcal{P}(E)$ dans $E$. En effet comme l'application qui à $x$ associe $\{x\}$ est une injection de $E$ dans $\mathcal{P}(E)$ dans $E$, si il existait une injection de $\mathcal{P}(E)$ dans $E$, d'après le théorème de Cantor-Bernstein, $\mathcal{P}(E)$ et $E$ seraient équipotents.
 \end{theoreme}
 
 \subsubsection{Relation d'ordre et d'équivalence}

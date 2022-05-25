@@ -84,5 +84,23 @@ Cette notion d'équipotence est la "bonne" notion pour définir le cardinal (la 
 
 \subsection{Axiomatisation de Zermelo-Frankel (ZFC)}
 \subsubsection{Motivation : un inventaire de paradoxes}
+On a précédemment considéré qu'un ensemble pouvait être défini par la donnée de n'importe quelle propriété en langage naturel. Voyons pourquoi cette position est intenable.
+
+\begin{boite}{Paradoxe de Beatty}
+	Soit $E$ l'ensemble des mots pouvant être définis en moins de 17 mots en français. On considère "le premier mot par ordre alphabétique ne pouvant pas être défini en moins de 17 mots français" : on vient de le définir en 17 mots, donc il peut bien être défini. La seule issue est de décréter que $E$ ne peut pas exister. 
+\end{boite}
+
+Ce paradoxe rend apparent la nécessité de s'en tenir au langage formel, tel que défini par \hyperref[lang]{le chapitre 1}. Mais ce n'est pas la seule limitation sur les ensembles pouvant exister.
+
+On suppose maintenant qu'on peut définir un ensemble par la donnée d'une propriété en langage formel. Apparaît alors un autre paradoxe.
+
+\begin{boite}{Paradoxe de Russel}
+	Soit $A=\{x|x\not\in x\}$ l'ensemble des ensembles n'appartenant pas à eux mêmes. Est-ce que $A\in A$ ?
+
+	Si $A\in A$, alors $A\not \in A$. Inversement, si $A \not\in A$, alors $A\in A$. Il en ressort comme préceddement qu'un tel ensemble n'existe nécessairement pas. 
+\end{boite}
+
+
+
 \subsubsection{Zoom sur l'axiome du choix}
 

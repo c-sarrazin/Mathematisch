@@ -157,7 +157,7 @@ On en déduit que pour un entier relatif $m=pq+r$, $\sigma^m=\sigma^r$.
     Un cycle est entièrment défini par l'orbite d'un élément de son support.
     \tcblower
     Soit $p\in\N_n$ un element du support de $\sigma$ un cycle de longueur $n$ alors $\sigma=\begin{pmatrix}
-        p& \sigma(p)& \sigma^2(p)&\dots &\sigma^n(p)
+        p& \sigma(p)& \sigma^2(p)&\dots &\sigma^{n-1}(p)
     \end{pmatrix}$
     Soit $p\in\N_n$ un élément dans le support de $\sigma$ et de $\sigma'$ tel que $\{\sigma^k(p)\mid k\in\N\}=\{\sigma'^k(p)\mid k\in\N\}$ alors $\sigma=\sigma'$
 \end{prop}
@@ -170,9 +170,28 @@ j & i
 \end{pmatrix}$ ou encore $\tau_{i,j}$.
 \end{defini}
 \begin{prop}[Sur les transposition]
-Comme on peut le voir avec la notation $\tau_{i,j}=\tau_{j,i}$, on a aussi facilement $\tau^2_{i,j}=\Id$ et donc $\tau_{i,j}=\tau^{-1}_{i,j}$
+    \begin{itemize}
+        \item Comme on peut le voir avec la notation $\tau_{i,j}=\tau_{j,i}$, on a aussi facilement $\tau^2_{i,j}=\Id$ et donc $\tau_{i,j}=\tau^{-1}_{i,j}$.
+        \item Pour avoir une transposition dans $\mathfrak{S}_n$, on prend deux éléments distincts de $\N_n$ c'est à dire $\binom{n}{2}=\frac{n(n-1)}{2}$ transpositions possibles.
+        \item Soit $\begin{pmatrix}
+            j & i
+            \end{pmatrix}$ et $\begin{pmatrix}
+                a & b
+                \end{pmatrix}$ deux transpositions, $\begin{pmatrix}
+                    j & i
+                    \end{pmatrix}\begin{pmatrix}
+                        a & b
+                        \end{pmatrix}=\begin{pmatrix}
+                            a & b
+                            \end{pmatrix}\begin{pmatrix}
+                                j & i
+                                \end{pmatrix}\iff (\{a,b\}=\{j,i\} \vee \{a,b\}\cap\{j,i\})=\emptyset$ 
+    \end{itemize}
 \end{prop}
-
+\begin{exo}
+    On appelle centre de $\mathfrak{S}_n$ l'ensemble des éléments de $\mathfrak{S}_n$ qui commutent avec tous les autres.
+    Déterminer pour $n\geq 3$ le centre de $\mathfrak{S}_n$
+\end{exo}
 \begin{theoreme}[Décomposition de permutations en produit de cycle]
     Toute permutation de $\mathfrak{S}_n$(avec $n\geq1$) se décompose en un produit de cycles à supports deux à deux disjoints. Cette décomposition est unique à l'ordre des facteurs près.
     
@@ -209,6 +228,17 @@ Comme on peut le voir avec la notation $\tau_{i,j}=\tau_{j,i}$, on a aussi facil
                         n-1 & n
                         \end{pmatrix}$
 \end{theoreme}
+\subsubsection{Signature d'une permutation}
+\begin{defini}[Inversion]
+    Soit $\sigma\in\mathfrak{S}_n$, et $(i,j)\in \N_n^2$, on dit que ce couple est une inversion si $i<j$ et $\sigma(i)>\sigma(j)$. On note $I(\sigma)$ le nombre d'inversion de $\sigma$.
+\end{defini}
+\begin{defini}[Signature d'un permutation]
+    Soit $\sigma\in\mathfrak{S}_n$, en notant $I(\sigma)$ le nombre d'inversion de $\sigma$. On appelle signature(souvent noté $\varepsilon$) l'application
+
+    $$\varepsilon : \mathfrak{S}_n\to\{-1,1\},\sigma\mapsto(-1)^{I(\sigma)}$$
+
+    On peut le voir alors aussi en développant la définition de l'inversion que $\varepsilon(\sigma)=\prod_{1\leq i <j\leq n}sgn(\sigma(j)-\sigma(i))$
+\end{defini}
 \begin{theoreme}[Développement d'un déterminant]
     Blabla
 \end{theoreme}

@@ -62,6 +62,12 @@ On revient maintenant aux applications.
 	\end{itemize}
 \end{defini}
 
+\begin{prop} \label{recolle}
+	Soient $A, B, A', B'$ tels que $A\cap B = \varnothing$ et $A'\cap B' = \varnothing$. Soient $f : A \to A'$ et $g : B \to B'$ deux injections. La fonction $h : A \cup B \to A' \cup B'$ telle que $h_{/A}=f$ et $h_{/B}=g$ est injective.
+	\tcblower
+	Soient $x$ et $y$ tels que $h(x)=h(y)$. Supposons $h(x)=h(y)\in A'$. Alors $f(x)=f(y)$ d'où $x=y$. Un argument similaire tient pour $h(x)=h(y)\in B'$.
+\end{prop}
+
 \begin{defini}
 	On dit que deux ensembles sont équipotents si il existe une bijection de l'un dans l'autre.
 \end{defini}
@@ -69,20 +75,61 @@ On revient maintenant aux applications.
 Cette notion d'équipotence est la "bonne" notion pour définir le cardinal (la "taille") d'un ensemble, comme on le verra plus tard.  
 
 \begin{theoreme}[Théorème de Cantor-Bernstein]
-	Soient $E$ et $F$ deux ensembles. Si il existe une injection de $E$ dans $F$ et une injection de $F$ dans $E$, alors $E$ et $F$ sont équipotents.
+	Soient $A$ et $B$ deux ensembles. Si il existe une injection de $A$ dans $B$ et une injection de $B$ dans $A$, alors $A$ et $B$ sont équipotents.
 	\tcblower
-	Soient $E$ et $F$ deux ensembles, $f$ et $g$ deux injections. Construisons une bijection $h$.
+	Soient  $f$ et $g$ ces deux injections. On pose $B'= \{g(x)|x\in B\} \subset A$. $g$ est une bijection de $B$ vers $B'$. Construisons une bijection $h$ de $A$ vers $B'$. 
 
-	
+	On pose :
+	$$\begin{cases}
+		A_0 = A\backslash B' \\
+		A_{n+1}=g\circ f(A_n)
+	\end{cases}$$
+
+	On définit :
+	$$ h : A \to B$$
+	$$a \mapsto \begin{cases}g \circ f(a) \text{ si } a \in \bigcup_{i\geq 0}A_i \\ a \text{ sinon}\end{cases}$$
+
+	On a bien $\bigcup_{i\geq 0}A_i \cap A\backslash \bigcup_{i\geq 0}A_i=\varnothing$ et $\bigcup_{i\geq 1}A_i \cap A\backslash \bigcup_{i\geq 0}A_i = \varnothing$. De plus $g\circ f$ et la fonction identité sont injectives. D'où d'après \hyperref[recolle]{la propriété montrée plus haut}, $h$ est injective.
+
+	Enfin $h(A)=B'$ donc $h$ est bien la bijection recherchée. Une bijection de $A$ vers $B$ est donc $g^{-1} \circ h$, et la preuve est achevée.
 \end{theoreme}
 
 \begin{theoreme}[Théorème de Cantor]
 	Soit $E$ un ensemble. $E$ et $\mathcal{P}(E)$ ne sont pas équipotents.
+	\tcblower
+	Soit $f : E \to \mathcal{P}(E)$. Montrons que $f$ n'est pas surjective.
+
+	Soit $F=\{x\in E|x\not \in f(x)\}$. Soit $x\in E$, deux cas se présentent :
+	\begin{itemize}
+		\item $x\in B$, alors $x\not\in f(x)$ et donc $x\in B\backslash f(x)$. D'où $B\backslash f(x)\neq\varnothing$ et donc $B\neq f(x)$.
+		\item $\not \in B$, alors $x\in f(x)$ et donc $x\in f(x)\backslash B$. D'où $f(x)\backslash B\neq\varnothing$ et donc $B\neq f(x)$.
+	\end{itemize}
+	Finalement, $x$ ne peut être un antécédent pour $E$. Donc $E$ n'a pas d'antécédent et $f$ n'est pas surjective, donc pas bijective.
+
+	On peut en bonus montrer qu'il n'y a pas d'injection de $\mathcal{P}(E)$ dans $E$. En effet comme l'application qui à $x$ associe $\{x\}$ est une injection de $E$ dans $\mathcal{P}(E)$ dans $E$, si il existait une injection de $\mathcal{P}(E)$ dans $E$, d'après le théorème de Cantor-Bernstein, $\mathcal{P}(E)$ et $E$ seraient équipotents.
 \end{theoreme}
 
 \subsubsection{Relation d'ordre et d'équivalence}
 
 \subsection{Axiomatisation de Zermelo-Frankel (ZFC)}
 \subsubsection{Motivation : un inventaire de paradoxes}
+On a précédemment considéré qu'un ensemble pouvait être défini par la donnée de n'importe quelle propriété en langage naturel. Voyons pourquoi cette position est intenable.
+
+\begin{boite}{Paradoxe de Beatty}
+	Soit $E$ l'ensemble des mots pouvant être définis en moins de 17 mots en français. On considère "le premier mot par ordre alphabétique ne pouvant pas être défini en moins de 17 mots français" : on vient de le définir en 17 mots, donc il peut bien être défini. La seule issue est de décréter que $E$ ne peut pas exister. 
+\end{boite}
+
+Ce paradoxe rend apparent la nécessité de s'en tenir au langage formel, tel que défini par \hyperref[lang]{le chapitre 1}. Mais ce n'est pas la seule limitation sur les ensembles pouvant exister.
+
+On suppose maintenant qu'on peut définir un ensemble par la donnée d'une propriété en langage formel. Apparaît alors un autre paradoxe.
+
+\begin{boite}{Paradoxe de Russel}
+	Soit $A=\{x|x\not\in x\}$ l'ensemble des ensembles n'appartenant pas à eux mêmes. Est-ce que $A\in A$ ?
+
+	Si $A\in A$, alors $A\not \in A$. Inversement, si $A \not\in A$, alors $A\in A$. Il en ressort comme préceddement qu'un tel ensemble n'existe nécessairement pas. 
+\end{boite}
+
+
+
 \subsubsection{Zoom sur l'axiome du choix}
 

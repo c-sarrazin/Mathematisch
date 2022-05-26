@@ -216,16 +216,16 @@ j & i
     Tout cycle se décompose en produit de transposition, il en découle que toutes permutations (Sauf $\Id$ dans un esemble à 1 élément mais sans interets), se décompose en produit de transposition.
     \tcblower
     Soit $\begin{pmatrix}
-        1 & 2 & \dots & n
+        a_1 & a_2 & \dots & a_n
         \end{pmatrix}$ un cycle, alors il se décompose par produit de transpositions $\begin{pmatrix}
-            1 & 2
+            a_1 & a_2
             \end{pmatrix}$$\begin{pmatrix}
-                2 & 3
+                a_2 & a_3
                 \end{pmatrix}$
                 $\begin{pmatrix}
-                    3 & 4
+                    a_3 & a_4
                     \end{pmatrix}\dots$$\begin{pmatrix}
-                        n-1 & n
+                        a_{n-1} & a_n
                         \end{pmatrix}$
 \end{theoreme}
 \subsubsection{Signature d'une permutation}
@@ -237,8 +237,32 @@ j & i
 
     $$\varepsilon : \mathfrak{S}_n\to\{-1,1\},\sigma\mapsto(-1)^{I(\sigma)}$$
 
-    On peut le voir alors aussi en développant la définition de l'inversion que $\varepsilon(\sigma)=\prod_{1\leq i <j\leq n}sgn(\sigma(j)-\sigma(i))$
+    On peut le voir alors aussi en développant la définition de l'inversion que $\displaystyle\varepsilon(\sigma)=\prod_{1\leq i <j\leq n}sgn(\sigma(j)-\sigma(i))$
 \end{defini}
+\begin{prop}[Signature d'une transpositions]
+    La signature d'une transposition vaut $-1$
+    \tcblower
+    Soit une transposition $\sigma=\begin{pmatrix}
+        i & j
+        \end{pmatrix}$, quitte à retourner la transposition on suppose $i<j$ alors $\sigma(j)=i<j=\sigma(i)$, c'est la seul inversion donc $\varepsilon(\sigma)=-1$ 
+\end{prop}
+\begin{prop}[Signature d'un cycle]
+    Soit $\sigma$ un cycle de longueur $p\geq2$, alors $\varepsilon(\sigma)=(-1)^{p-1}$
+    \tcblower
+    D'après la définition d'un cycle, $\sigma=\begin{pmatrix}
+        a_1 & a_2 & \dots & a_p
+        \end{pmatrix}$, on connait une décomposition de $\sigma=\begin{pmatrix}
+            a_1 & a_2
+            \end{pmatrix}$$\begin{pmatrix}
+                a_2 & a_3
+                \end{pmatrix}$
+                $\begin{pmatrix}
+                    a_3 & a_4
+                    \end{pmatrix}\dots$$\begin{pmatrix}
+                        a_{p-1} & a_p
+                        \end{pmatrix}$, c'est a dire un produit de $p-1$ transposition, $\varepsilon(\sigma)=(-1)^{p-1}$
+
+\end{prop}
 \begin{theoreme}[Développement d'un déterminant]
     Blabla
 \end{theoreme}

@@ -230,22 +230,34 @@ j & i
 \end{theoreme}
 \subsubsection{Signature d'une permutation}
 \begin{defini}[Inversion]
-    Soit $\sigma\in\mathfrak{S}_n$, et $(i,j)\in \N_n^2$, on dit que ce couple est une inversion si $i<j$ et $\sigma(i)>\sigma(j)$. On note $I(\sigma)$ le nombre d'inversion de $\sigma$.
+    Soit $\sigma\in\mathfrak{S}_n$, et $(i,j)\in \N_n^2$, on dit que ce couple est une inversion si $i<j$ et $\sigma(i)>\sigma(j)$. On note $N(\sigma)$ le nombre d'inversion de $\sigma$.
 \end{defini}
 \begin{defini}[Signature d'un permutation]
-    Soit $\sigma\in\mathfrak{S}_n$, en notant $I(\sigma)$ le nombre d'inversion de $\sigma$. On appelle signature(souvent noté $\varepsilon$) l'application
+    Soit $\sigma\in\mathfrak{S}_n$, en notant $N(\sigma)$ le nombre d'inversion de $\sigma$. On appelle signature(souvent noté $\varepsilon$) l'application
 
-    $$\varepsilon : \mathfrak{S}_n\to\{-1,1\},\sigma\mapsto(-1)^{I(\sigma)}$$
+    $$\varepsilon : \mathfrak{S}_n\to\{-1,1\},\sigma\mapsto(-1)^{N(\sigma)}$$
 
     On peut le voir alors aussi en développant la définition de l'inversion que $\displaystyle\varepsilon(\sigma)=\prod_{1\leq i <j\leq n}sgn(\sigma(j)-\sigma(i))$
 \end{defini}
 \begin{prop}[Signature d'une transpositions]
     La signature d'une transposition vaut $-1$
     \tcblower
-    Soit une transposition $\sigma=\begin{pmatrix}
+    Soit une transposition $\sigma\in\mathfrak{S}_n$, $\sigma=\begin{pmatrix}
         i & j
-        \end{pmatrix}$, quitte à retourner la transposition on suppose $i<j$ alors $\sigma(j)=i<j=\sigma(i)$, c'est la seul inversion donc $\varepsilon(\sigma)=-1$ 
+        \end{pmatrix}$, quitte à retourner la transposition on suppose $i<j$ alors $\sigma =\begin{pmatrix}
+            1 & \dots & i-1 & i & i+1 & \dots & j-i & j & j+1 & \dots & n \\
+            1 & \dots & i-1 & j & i+1 & \dots & j-i & i & j+1 & \dots & n
+            \end{pmatrix}$
+            Les inversions liées à $j$ sont les $(i,j),(i+1,j),\dots,(j-1,j)$, celle avec $i$ sont les $(i,j),(i,i+1),(i+2)\dots(i,j-1)$
+            On remarque tout simplement qu'il y a le même nombre d'inversions avec $j$ qu'avec $i$, on appelle $p$ ce nombre, alors le nombre $N(\sigma)=2p-1$, car on ne doit pas compter l'inversion $(i,j)$ deux fois.
+            Alors $\varepsilon(\sigma)=(-1)^{N(\sigma)}=(-1)^{2p-1}=(-1)$
 \end{prop}
+\begin{theoreme}[Morphisme signature]
+    L'application signature réalise un morphisme du groupe $(\mathfrak{S}_n,\circ)$ dans $(\{-1,1\},\times)$
+    \tcblower
+    
+    
+\end{theoreme}
 \begin{prop}[Signature d'un cycle]
     Soit $\sigma$ un cycle de longueur $p\geq2$, alors $\varepsilon(\sigma)=(-1)^{p-1}$
     \tcblower

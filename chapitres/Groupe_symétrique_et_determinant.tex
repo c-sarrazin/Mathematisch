@@ -243,14 +243,18 @@ j & i
     La signature d'une transposition vaut $-1$
     \tcblower
     Soit une transposition $\sigma\in\mathfrak{S}_n$, $\sigma=\begin{pmatrix}
-        i & j
-        \end{pmatrix}$, quitte à retourner la transposition on suppose $i<j$ alors $\sigma =\begin{pmatrix}
-            1 & \dots & i-1 & i & i+1 & \dots & j-i & j & j+1 & \dots & n \\
-            1 & \dots & i-1 & j & i+1 & \dots & j-i & i & j+1 & \dots & n
-            \end{pmatrix}$
-            Les inversions liées à $j$ sont les $(i,j),(i+1,j),\dots,(j-1,j)$, celle avec $i$ sont les $(i,j),(i,i+1),(i+2)\dots(i,j-1)$
-            On remarque tout simplement qu'il y a le même nombre d'inversions avec $j$ qu'avec $i$, on appelle $p$ ce nombre, alors le nombre $N(\sigma)=2p-1$, car on ne doit pas compter l'inversion $(i,j)$ deux fois.
-            Alors $\varepsilon(\sigma)=(-1)^{N(\sigma)}=(-1)^{2p-1}=(-1)$
+    i & j
+    \end{pmatrix}$, quitte à retourner la transposition on suppose $i<j$ alors $\sigma =$
+    \begin{equation}
+        \begin{pmatrix}
+        1 & \dots & i-1 & i & i+1 & \dots & j-i & j & j+1 & \dots & n \\
+        1 & \dots & i-1 & j & i+1 & \dots & j-i & i & j+1 & \dots & n
+        \end{pmatrix}
+    \end{equation}
+
+        Les inversions liées à $j$ sont les $(i,j),(i+1,j),\dots,(j-1,j)$, celle avec $i$ sont les $(i,j),(i,i+1),(i+2)\dots(i,j-1)$
+        On remarque tout simplement qu'il y a le même nombre d'inversions avec $j$ qu'avec $i$, on appelle $p$ ce nombre, alors le nombre $N(\sigma)=2p-1$, car on ne doit pas compter l'inversion $(i,j)$ deux fois.
+        Alors $\varepsilon(\sigma)=(-1)^{N(\sigma)}=(-1)^{2p-1}=(-1)$
 \end{prop}
 \begin{theoreme}[Morphisme signature]
     L'application signature réalise un morphisme du groupe $(\mathfrak{S}_n,\circ)$ dans $(\{-1,1\},\times)$

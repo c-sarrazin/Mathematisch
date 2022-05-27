@@ -115,7 +115,7 @@ Cette notion d'équipotence est la "bonne" notion pour définir le cardinal (la 
 \subsubsection{Motivation : un inventaire de paradoxes}
 On a précédemment considéré qu'un ensemble pouvait être défini par la donnée de n'importe quelle propriété en langage naturel. Voyons pourquoi cette position est intenable.
 
-\begin{boite}{Paradoxe de Beatty}
+\begin{boite}{Paradoxe de Berry}
 	Soit $E$ l'ensemble des mots pouvant être définis en moins de 17 mots en français. On considère "le premier mot par ordre alphabétique ne pouvant pas être défini en moins de 17 mots français" : on vient de le définir en 17 mots, donc il peut bien être défini. La seule issue est de décréter que $E$ ne peut pas exister. 
 \end{boite}
 
@@ -129,7 +129,55 @@ On suppose maintenant qu'on peut définir un ensemble par la donnée d'une propr
 	Si $A\in A$, alors $A\not \in A$. Inversement, si $A \not\in A$, alors $A\in A$. Il en ressort comme préceddement qu'un tel ensemble n'existe nécessairement pas. 
 \end{boite}
 
+En fait, le problème vient du fait qu'on avait supposé la chose suivante
+\begin{boite}{Axiome de compréhension}
 
+\end{boite}
 
-\subsubsection{Zoom sur l'axiome du choix}
+On va maintenant postuler la chose suivante
+\begin{boite}[Axiome de séparation]
+	
+\end{boite}
 
+Pour pouvoir éviter le paradoxe de Russel, il est aussi nécessaire que "l'ensemble de tous les ensembles" n'existe pas, aucun cas il suffirait de lui appliquer l'axiome de séparation pour retrouver l'axiome de compréhension.
+
+\subsubsection{Axiomes de construction et de fondation}
+
+Toute propriété ne définissant pas un ensemble, et encore moins en langage humain, on voit donc qu'il est nécessaire de se donner des axiomes plus rigoureux. En particulier, en se privant de l'axiome de compréhension, il est nécessaire d'introduire des axiomes pour pouvoir construire de nouveaux ensembles à partir d'anciens grâce aux opérations précedemment définies (réunion, intersection, produit cartésien...)
+
+\begin{boite}{Axiomes de construction}
+	\begin{itemize}
+		\item Axiome d'extensionnalité : Deux ensembles sont égaux si ils ont exactement les même éléments, c'est à dir si appartenir à l'un est équivalent à appartienir à l'autre.
+		\item Axiome de la paire : étant donné deux ensembles $A, B$, l'ensemble $\{A, B\}$ existe.
+		\item Axiome de la réunion : étant donné deux ensembles $A, B$, l'ensemble $\{A, B\}$ existe.
+		\item Axiome de l'ensemble des parties : étant donné un ensemble $A$, $\mathcal{P}(A)$ existe.
+	\end{itemize}
+\end{boite}
+
+On y adjoint un axiome provisoire qui assure l'existence d'au moins un ensemble, par mesure de commodité. Cependant l'introduction dans le prochain chapitre d'un axiome d'existence vraiment utile (qui garantira l'existence de $\N$) nous conduira à l'abandonner. Notons que cette existence implique l'existence de l'ensemble vide par application de l'axiome de séparation avec une propriété toujours fausse (comme $x\neq x$).
+
+On a maintenant construit toutes sortes d'ensembles : $\varnothing, \{\{\{\varnothing, \{\varnothing\}\}\}, \varnothing, \{\{\varnothing\}\}\}$... sur lesquels on peut vérifier nos précédentes définitions.
+
+\begin{prop}
+	Si $A$ est un ensemble, le singleton $\{A\}$ existe.
+	\tcblower
+	C'est l'ensemble "$\{A, A\}$" existant d'après l'axiome de la paire. 
+\end{prop}
+
+\begin{prop}
+	L'intersection de deux ensembles est bien définie.
+	\tcblower
+	C'est l'ensemble $\{x\in A\cup B| x\in A \land x\in B\}$ existant d'après l'axiome de séparation.
+\end{prop}
+
+\begin{prop}
+	Le produit cartésien de deux ensembles est bien défini.
+	\tcblower
+	Soit $A$ et $B$ deux ensembles. On a déjà dit que le couple $(x,y)$ était l'ensemble $\{\{x\}, \{x,y\}\}.$ Ce couple est donc un élement de $\mathcal{P}(\mathcal{P}(A\cup B))$. On définit ensuite le produit cartésien par séparation : $A\times B = \{z\in \mathcal{P}(\mathcal{P}(A\cup B))| \exists x \in A \exists y \in B z=\{\{x\}, \{x,y\}\}\}$.
+\end{prop}
+
+%to do : propriété caractéristique ????
+\subsubsection{L'axiome du choix}
+
+\subsubsection{Conclusion}
+On vient de voir ce qu'on peut faire, comme opération basique, sur un ensemble - mais pour le moment il n'est pas clair comment on peut représenter des "vrais" objets mathématiques - des entiers, des réels... - avec. Dans le prochain chapitre, on développera la notion d'ordinal et de cardinal pour les ensembles infinis. On construira aussi les fondations de l'arithmétique. 

@@ -316,7 +316,8 @@ Cette propriété de $\R$ est importante et se généralise aux espaces métriqu
     \tcblower
 \end{ex}
 
-
+Le complété d'un espace métrique $E$ est le plus petit espace métrique complet contenant $E$. Par exemple, $\R$ est le complété de $\Q$, et tout espace métrique complet est son propre complété.
+On peut définir (et donc montrer l'existence) de ce complété par un procédé analogue, avec une relation d'équivalence similaire (de type $a_n \sim b_n \iff d(a_n, b_n) \to 0$). 
 
 \subsubsection{La propriété de la borne supérieure, à partir des coupures de Dedekind}
 
@@ -338,3 +339,21 @@ On justifie ici l'appelation "hypothèse du continu" en montrant que $2^{\aleph_
 \begin{theoreme}[$\R$ n'est pas dénombrable]
     La propriété précédente nous permet directement de conclure grâce au théorème de Cantor qu'il n'existe aucune bijection entre $\N$ et $\R$. 
 \end{theoreme}
+
+\subsection*{Exercices}
+
+\setcounter{exo}{0}
+
+\begin{exo}[Deux espaces de fonctions]
+    Soit $\mathcal{C}$ l'ensemble des fonctions continues sur un segment $[a,b]$ et à valeurs réelles.
+    \begin{itemize}
+        \item $\mathcal{C}$ muni de la distance $d_1(f,g)=\max_{x\in [a,b]} |f(x)-g(x)|$ est complet.
+        \item $\mathcal{C}$ muni de la distance $d_2(f,g)=\int_a^b|f(x)-g(x)| \mathrm{d}x$ n'est pas complet. 
+    \end{itemize}
+    \tcblower
+    \begin{enumerate}
+        \item Vérifier que ces distances sont définies et bien des distances.
+        \item En utilisant le théorème de Heine et le fait que toute suite de fonctions uniformément continues converge vers une fonction continue, montrer que $(\mathcal{C},d_1)$ est complet.
+        \item Trouver une suite de Cauchy pour $d_2$ qui ne converge pas.
+    \end{enumerate}
+\end{exo}

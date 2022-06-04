@@ -21,7 +21,22 @@
 
     \textit{0 > 1}; est une proposition dont la valeur est faux.
 \end{ex}
+Soit $P,Q,R$ des variables propositionnelles, elles représentent une proposition.
+\begin{defini}[Connecteurs(liens) logiques usuels ]
+    Les connecteurs logiques permettent de crée des nouvelles propositionnelles
 
+    $\land$ le "et", $P\land Q$ prend la valeur vraie si $P$ est vraie et $Q$ est vraie.
+
+    $\vee$ le "ou"(inclusif), $P\vee Q$ prend la valeur vraie si au moins l'un des $P$ ou $Q$ prend la valeur vraie
+
+    $\implies$ le signe d'implication, $P\implies Q$ prend la valeur vraie si lorsque $P$ est vraie alors $Q$ est vraie. Attention si $P$ est fausse alors $P\implies Q$ est vraie quelque soit la valeur de $Q$,comme le dit l'adage "Avec des si on mettrait Paris en bouteille"
+
+    $\iff$ le signe d'équivalence, $P\iff Q$ prend la valeur vraie si $P$ et $Q$ on la toujours la même valeur.
+
+    $\lnot$ le "non", $\lnot P$ prend la valeur vraie si $P$ est fausse.
+    
+\end{defini}
+Table de verité des liens logiques usuels 
 \begin{center}
     \arrayrulecolor[rgb]{0.502,0.502,0.502}
     \begin{tabular}{!{\color{black}\vrule}c!{\color{black}\vrule}c!{\color{black}\vrule}c|c|c|c|c!{\color{black}\vrule}} 
@@ -38,3 +53,14 @@
     \arrayrulecolor{black}\hline
     \end{tabular}
 \end{center}
+\begin{exo}
+    Montrer à l'aide de la table de vérité que $(P\iff Q)\iff((P\implies Q)\land(Q\implies P))$
+    Ceci justifie que pour montrer une équivalence, on montre en général deux implications.
+\end{exo}
+\begin{defini}[Condition nécessaire, suffisante]
+    On dit que $P$ est une condition suffisante pour avoir $Q$ si $P\implies Q$
+
+    On dit que $Q$ est une condition nécessaire pour avoir $P$ si $P\implies Q$
+
+    On dit que $Q$ est une condition néccessaire et suffisante pour avoir $P$ si $P\iff Q$
+\end{defini}

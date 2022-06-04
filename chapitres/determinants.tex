@@ -276,6 +276,24 @@ j & i
                         \end{pmatrix}$, c'est a dire un produit de $p-1$ transposition, $\varepsilon(\sigma)=(-1)^{p-1}$
 
 \end{prop}
+\subsection{Applications multilinéaires alternées}
+On travaille dans le corps $\K$ qui représente $\R$ ou $\mathbb{C}$.
+\begin{defini}[Applications multilinéaires]
+    Soit $E_1,E_2,\dots,E_n,F$ une famille de $n+1$ espaces vectoriels sur $\K$. Soit $f$ une application de $E_1\times E_2\times \dots \times E_n$ dans $F$. On dit que $f$ est $n$-linéaire si pour tout indice $i$ de $\{1,\dots,n\}$, en fixant pour tout $j\neq i \in \{1,\dots,n\}$, $u_j\in E_j$.
+    l'application $u \mapsto f(u_1,\dots,u_{i-1},u,u_{i+1},\dots,u_n)$ est linéaire.
+    On note $\mathcal{L}(E_1\times E_2\times \cdots \times E_n, F)$ l'ensemble de ces applications. Si $E_1=E_2=\cdots=E_n=E$, on note plus simplement $\mathcal{L}_n(E,F)$.
+\end{defini}
+\begin{ex}[Sur les applications n-linéaire]
+    \begin{itemize}
+        \item Il est clair que l'ensemble $\mathcal{L}(E_1\times E_2\times \cdots \times E_n, F)$ est un espace vectoriel sur $\K$.
+        \item Soit $f$, $n$-linéaire, alors $f(u_1,\dots,u_{i-1},0,u_{i+1},\dots,u_n)=0$
+        \item Si $n=2$ on parle d'application bilinéaire, si $n=3$ on parle d'application trilinéaire.
+        \item Si $F=\K$ on parle de forme $n$-linéaire.
+        \item Les applications produit sont bilinéaire ; $f:\K\times\K\to\K;(x,y)\mapsto x.y$; $\varphi:\mathcal{M}_n(\K)\times\mathcal{M}_n(\K)\to\mathcal{M}_n(\K); (A,B)\to A.B$ 
+        
+        $\psi:\mathcal{L}(E)\times\mathcal{L}(E)\to\mathcal{L}(E); (f,g)\to f\circ g$
+    \end{itemize}
+\end{ex}
 \begin{theoreme}[Développement d'un déterminant]
     Blabla
 \end{theoreme}

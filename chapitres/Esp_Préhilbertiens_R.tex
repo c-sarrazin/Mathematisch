@@ -1,0 +1,31 @@
+\subsection{Produit Scalaire}
+\begin{defini}[Forme bilinéaire symétrique]
+    Soit $E$ un espace vectoriel réel  et $\varphi : E\times E \to \R; (x,y)\mapsto \varphi(x,y)$. On dit que $\varphi$ est une forme bilinéaire symétrique si $\forall (x,y)\in E\times E, \varphi(x,y)=\varphi(y,x)$ et que $\forall y_0\in E,$ l'application $x \mapsto (\varphi(x,y_0))$ est linéaire.
+\end{defini}
+\begin{defini}[Positivité d'une fbs]
+    Soit $\varphi$ une forme bilinéaire positive, elle est dite positive si $\forall x\in E, \varphi(x,x)\leq 0$.
+\end{defini}
+\begin{defini}[Définition positive d'une fbs]
+    Soit $\varphi$ une forme bilinéaire positive, elle est dite defini positive si elle est positive et si  de plus $\forall x\in E, \varphi(x,x)=0\implies x=0$.
+\end{defini}
+\begin{defini}[Produit scalaire]
+    On appelle produit scalaire de $E$ toute forme bilinéaire symétrique definie positive.
+    Soit $\varphi$ un produit scalaire, on notera pour $x,y\in E$ plutôt $(x\mid y)$ ou $ \langle x,y\rangle $ que $\varphi(x,y)$
+\end{defini}
+\begin{defini}[Espace préhilbertien réel]
+    On appelle espace préhilbertien réel tout espace vectoriel réel muni d'un produit scalaire
+\end{defini}
+\begin{defini}[Espace euclidien]
+    On appelle espace euclidien tout espace préhilbertien réel de dimension finie
+\end{defini}
+\begin{prop}[Décomposition dans une base]
+    Soit $e=(e_1,\dots,e_n)$ une base de $E$ espace euclidien, et $x,y\in E$ tel que $\displaystyle x=\sum_{k=1}^n x_k e_k$ et $\displaystyle y=\sum_{k=1}^n y_k e_k$ alors $\displaystyle(x\mid y)=\sum_{(i,j)\in \N_n^2}x_iy_j(e_i\mid e_j)$
+    \tcblower
+    Cette propriété est une application immédiate de la bilinéarité du produit scalaire.
+\end{prop}
+\begin{defini}[Norme euclienne]
+    Soit $\varphi$ un produit scalaire sur $E$, on definit l'application norme euclidienne de $\varphi$, $E\to\R; x\mapsto \sqrt{(x\mid x)}$, la norme pour $x\in E$ se note $||x||$.
+\end{defini}
+\begin{defini}[Distance (euclidienne)]
+    Soit $E$ préhilbertien réel, on definit l'application distance $$d: E \times E \to \R; (x,y)\mapsto ||x-y||=\sqrt{(x-y\mid x-y)}$$
+\end{defini}

@@ -1,0 +1,32 @@
+\titre{Probabilités}{Variables aléatoires dicrètes, continues, et applications}
+
+\subsection{Applications}
+\subsubsection{Divers}
+\begin{theoreme}[Théorème d'approximation de Weierstrass]
+    
+\end{theoreme}
+On peut démontrer ce théorème par un argument probabiliste assez miraculeux mettant en jeu les polynômes de Bernstein, et c'est en plus une preuve constructive puisqu'elle nous donne les objets en question. 
+
+\begin{prop}[Fonction zêta et nombres premiers]
+    
+\end{prop}
+
+\subsubsection{La méthode probabiliste}
+La "méthode probabiliste" est une méthode de preuve consistant à montrer, souvent par l'application d'inégalités comme celle de Markov, qu'un certain objet existe avec une probabilité strictement supérieure à zéro, donc qu'il existe. On donne ici quelques exemples de preuves suivant ce modèle.
+
+\begin{defini}
+    Un nombre est dit normal en base $b$ si toute suite finie se rencontre dans son développement décimal à la même fréquence. Plus précisement, en notant $D=\rrbracket0,b-1\llbracket$ et $N(A, n)$ le nombre d'apparitions de la suite finie $A$ dans les $n$ premiers chiffres, un réel $x$ est normal en base 10 si
+    $$\forall p \geq 1, \forall A \in D^p, \lim_{n\to \infty} \frac{N(A, n)}{n} = \frac{1}{b^p}$$
+    
+    Un nombre est dit normal si il est normal en toute base. 
+\end{defini}
+
+\begin{prop}[Borel]
+    L'ensemble des réels qui ne sont pas normaux est de mesure nulle.
+\end{prop}
+    
+\begin{boite}{Corollaire}
+    Il existe des nombres normaux.
+\end{boite}
+
+On sait construire relativement facilement des nombres normaux en base 10, par exemple le réel $0,12345678910111213...$ (nombre de Champernowne) est normal, mais il est plus difficile d'obtenir des nombres normaux en toute base. Lebesgue reprendra en 1909 la démonstration de Borel pour construire explicitement un tel nombre.

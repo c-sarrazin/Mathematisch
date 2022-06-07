@@ -1,5 +1,43 @@
 \titre{Convergence et analyse asymptotique}{Convergence de suites et de séries numériques, développements limités et asymptotiques, un peu d'arithmétique}
-
+\subsection{Compléments}
+\subsubsection{Pourquoi a-t-on besoin de la convergence absolue ?}
+\begin{defini}
+    Une série est dite semi-convergente si elle converge mais pas absolument.
+\end{defini}
 \begin{theoreme}[Théorème de réarrangement de Riemann]
-    
+    Soit $\Sigma a_n$ une série semi-convergente. Soit $\alpha \in \R$. Il existe une bijection $\sigma : \N \to \N$ telle que $\Sigma a_{\sigma(n)}  \to \alpha$.
 \end{theoreme}
+
+La démonstration se fera en plusieurs étapes. D'abord, on construira inductivement une injection. Ensuite, on montrera par l'absurde qu'elle est également surjective. Enfin, on montrera qu'elle converge vers $\alpha$.
+
+\paragraph{Construction de $\sigma$} $A$ est l'ensemble $\{ n \in \N | a_n \geq 0 \}$ et $B= \{ n\in \N | a_n <0\}$. $A$ comme $B$ sont infinis car si par exemple $A$ était fini, pour $n > \max A$ tous les $a_n$ seraient négatifs. La série $\sum a_n$ serait donc absolument convergente.
+
+On construit $\sigma$ par récurrence. On pose $\sigma(0)=0$ et en supposant $\sigma(k)$ défini pour $k<n$ on pose :
+\begin{itemize}
+    \item Si $\displaystyle\sum_{k=0}^{n-1}a_{\sigma(k)} \geq \alpha$, on pose $\sigma(n)=\min(A\backslash\{\sigma(k)|k<n\})$. $\sigma(n)$ est bien défini car $A$ est infini, donc cet ensemble est non vide et a bien un minimum.
+    \item De même si $\displaystyle\sum_{k=0}^{n-1}a_{\sigma(k)} < \alpha$, on pose $\sigma(n)=\min(B\backslash\{\sigma(k)|k<n\})$.
+\end{itemize}
+Par construction, $\sigma$ est injective.
+
+\paragraph{Montrons que $\sigma$ est surjective.} Supposons qu'il existe $N\in \N$ tel que $N\not \in \sigma(\N)$. Supposons par exemple $N\in A$. $N$ majore $\sigma(\N) \cap A$, qui est donc fini, et il existe un rang $n_0$ tel que $\forall n \geq n_0, \sigma(n)\in B$. On a donc pour $n\geq n_0$ :
+$$\sum_{k=0}^{n-1} a_{\sigma(k)} > \alpha$$
+Comme $a_{\sigma(k)}$ est négatif à partir du rang $n_0$, $(\sum_{k=0}^{n-1} a_{\sigma(k)})$ est décroissante, et converge car minorée par $\alpha$. La famille $(a_{\sigma(n)})_{n\in \N}$ est sommable et c'est la famille $(a_n)_{n\in B}$ à un nombre fini de termes près. $(a_n)_{n\in B}$ est donc également sommable. En posant :
+$$a'_n=\begin{cases}
+    a_n \text{ si } a_n<0 \\
+    0 \text{ sinon}
+\end{cases}$$
+$\sum a'_n = \sum_{n\in B} a_n$ converge, et converge absolument car tous les termes sont négatifs.
+$\sum a_n-a'_n$ est aussi convergente, et absolument convergente car $\forall n, a_n-a'_n\geq 0$. Mais alors $\sum a_n = \sum (a_n-a'_n)+a'_n$ est aussi absolument convergente, ce qui est impossible. D'où $\sigma$ est une permutation si $N\in A$. On arrive à une contradiction analogue avec $N\in B$. 
+
+\paragraph{Montrons enfin que $\sum a_{\sigma(k)}=\alpha$.} $a_n \to 0$, donc $a_{\sigma(n)} \to 0$ : en effet soit $\varepsilon >0$. $\exists N_1 \in \N, n \geq N_1 \implies |a_n|\leq \varepsilon$. Mais par injectivité $\{k\in \N |\sigma(k)<N_1\}$ est fini. Donc $n\geq \max \{k\in \N |\sigma(k)<N_1\} \implies |a_{\sigma(n)}|\leq \varepsilon$.
+
+$\exists N_2 > N_1$ tel que $\sigma(N_2) \in A$ et $\sigma(N_2+1) \in B$ (sinon $\sigma(A)$ ou $\sigma(B)$ seraient finis).
+
+On note $S_n=\sum_{k=0}^n a_{\sigma(k)}$. Montrons que $n\geq N_2 \implies |S_n - \alpha|\leq \varepsilon$.
+
+Comme $\sigma(N_2) \in A$, $S_{N_2-1} < \alpha$, et comme $\sigma(N_2+1) \in B$, $S_{N_2-1} \geq \alpha$. Mais comme $|S_{N_2}-S_{N_2-1}|=|a_{\sigma(N_2)}|\leq \varepsilon, S_{N_2} \in [\alpha-\varepsilon, \alpha+\varepsilon]$.
+
+Soit $n\geq N_2$. Supposons $S_n > \alpha+\varepsilon$. Comme $|S_{n-1}-S_n|=|a_{\sigma(n)}|\leq \varepsilon$, $S_{n-1} > \alpha$. On a donc $a_{\sigma(n)} < 0$, soit $S_{n-1} \geq S_n > \alpha+\varepsilon$ On obtient alors de la même façon $S_{n-2} \geq S_{n-1}$, et de proche en proche $S_{N_2} \geq \dots \geq S_{n-2} \geq S_{n-1} \geq S_n$ d'où $S_{N_2} > \alpha + \epsilon$, ce qui est impossible. Finalement $n\geq N_2 \implies S_n \leq \alpha +\varepsilon$. On obtient de façon similaire $n\geq N_2 \implies S_n \geq \alpha -\varepsilon$.
+
+On a bien $n\geq N_2 \implies |S_n-\alpha| \leq \varepsilon$, d'où :
+$$\boxed{\lim S_n = \sum a_{\sigma(n)} = \alpha}$$

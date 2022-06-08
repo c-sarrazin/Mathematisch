@@ -29,3 +29,36 @@
 \begin{defini}[Distance (euclidienne)]
     Soit $E$ préhilbertien réel, on definit l'application distance $$d: E \times E \to \R; (x,y)\mapsto ||x-y||=\sqrt{(x-y\mid x-y)}$$
 \end{defini}
+\begin{defini}[Vecteur normé]
+    Un vecteur $x\in E$ est dit normé si $||x||=1$
+\end{defini}
+\begin{prop}[Scalaire d'un vecteur nul]
+    Soit $E$ préhilbertien réel, alors $\forall(x,y)\in E^2, xy=0\implies (x\mid y)=0$
+    \tcblower
+    Comme le produit scalaire est symétrique on peut supposer $x=0$, alors $x=-x$ par exemple et par linéarité $(x\mid y)=-(x\mid y)=0$
+\end{prop}
+\begin{prop}[Sur la norme]
+    \begin{itemize}
+        \item $\forall x\in E, ||x||$
+        \item $\forall x\in E, ||x||=0 \iff x=0$
+        \item $ \forall x\in E, \forall \lambda \in \R, ||\lambda x||=|\lambda| ||x||$
+    \end{itemize}
+    \tcblower
+    \begin{itemize}
+        \item $||x||=\sqrt{(x\mid x)}$ or $(x\mid x)\geq 0$ par positivité du produit scalaire et on a bien $||x||$
+        \item $||x||=\sqrt{(x\mid x)}=0\iff (x\mid x)=0$ or le produit scalaire est defini positif donc $x=0$, réciproquement $||0||=0$.
+        \item $||\lambda x||=\sqrt{(\lambda x\mid \lambda x)}$ puis par bilinéarité $||\lambda x||=\sqrt{\lambda^2( x\mid x)}=|\lambda| ||x||$.
+    \end{itemize}
+\end{prop}
+\begin{prop}[Inégalité de Cauchy-Schwarz]
+    Soit $E$ préhilbertien réel alors $$\forall (x,y)\in E^2, |(x\mid y)|\leq ||x|| ||y||$$
+    De plus il y a égalité ssi $x$ et $y$ sont liés.
+    \tcblower
+    On pose ,pour $a,b\in E$, le polynôme $P$ sur $\R [X]$, $P(X)=||a+Xb||^2\geq 0$ en développant $(a+Xb\mid a+Xb)=||a||^2+2X(a\mid b)+X^2||b||$.
+    Si $||b||=0,b=0$ et $(a\mid b)=0$, facilement on a $(a\mid b)\leq ||a|| ||b||$
+    Sinon on associe au polynome $P$ sa fonction polynomiale sur $\R$ qui est une fonction du 2ème degrès, positive sur $\R$ donc de determinant négatif ou nul; $\Delta = 4X^2(a\mid b)^2-4X^2||a||^2||b||^2\leq 0$ et donc $(a\mid b)^2\leq ||a||^2||b||^2$ d'ou l'inégalité de Cauchy Schwarz.
+    Pour le cas d'égalité, si $||b||=0,b=0$ et $(a,b)$ est liée (0 toujours liée), sinon on a forcement $\Delta=0$ et $P$ admet alors une racine double. $\exist x_0\in \R$ tel que $P(x_0)=||a+x_0b||^2=0$ alors $a+x_0b=0,a=-x_0b$ et $(a,b)$ est liée.
+\end{prop}
+\begin{prop}[Inégalité Triangulaire (ou de Minkowski)]
+     
+\end{prop}

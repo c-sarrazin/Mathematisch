@@ -259,8 +259,28 @@ j & i
     
     
 \end{theoreme}
+\begin{defini}
+    Une permutation de signature $1$ est appelée une permutation paire et une permutation de signature $-1$ est appelée une permutation impaire.
+\end{defini}
+\begin{prop}[Sur les signatures]
+    \begin{enumerate}
+        \item Une permutation $\sigma$ et son inverse $\sigma^{-1}$ sont de même signature.
+        \item Le composé de deux permutations de même parité est paire, et la composé de deux permutations de parités opposées est impaire.
+        \item Si $\sigma$ est paire alors $\sigma^p$ est paire, si $\sigma$ est impaire alors $\sigma^p$ à la même parité que $p$.
+    \end{enumerate}
+    \tcblower
+    On note $\varepsilon$ le morphisme signature
+    \begin{enumerate}
+        \item $1=\varepsilon(\Id)=\varepsilon(\sigma \sigma')=\varepsilon(\sigma)\varepsilon(\sigma')$
+        Donc $\sigma$ et $\sigma'$ on même signature 
+        \item Simplement si $\varepsilon(\sigma)=\varepsilon(\sigma')$ alors $\varepsilon(\sigma \sigma')=\varepsilon(\sigma)^2=1$
+        si $\varepsilon(\sigma)=-\varepsilon(\sigma')$ alors $\varepsilon(\sigma \sigma')=-\varepsilon(\sigma)^2=-1$
+        \item Si $\varepsilon(\sigma)=1$ alors $\varepsilon(\sigma^p)=\varepsilon(\sigma)^p=1^p=1$ et si  $\varepsilon(\sigma)=-1$ alors $\varepsilon(\sigma^p)=\varepsilon(\sigma)^p=(-1)^p$ donc $1$ si $p$ pair et $-1$ si $p$ impaire.
+    \end{enumerate}
+\end{prop}
 \begin{prop}[Signature d'un cycle]
     Soit $\sigma$ un cycle de longueur $p\geq2$, alors $\varepsilon(\sigma)=(-1)^{p-1}$
+    Donc un cycle $\sigma$ de longueur $p$ est de parité opposées à celle de $p$
     \tcblower
     D'après la définition d'un cycle, $\sigma=\begin{pmatrix}
         a_1 & a_2 & \dots & a_p
@@ -274,8 +294,10 @@ j & i
                     \end{pmatrix}\dots$$\begin{pmatrix}
                         a_{p-1} & a_p
                         \end{pmatrix}$, c'est a dire un produit de $p-1$ transposition, $\varepsilon(\sigma)=(-1)^{p-1}$
-
 \end{prop}
+\begin{defini}[Groupe alternées]
+    On appelle groupe alternées de degrès $n$, noté $\mathcal{A}_n$, le sous groupe de $\mathfrak{S}_n$ des permutations paires.
+\end{defini}
 \subsection{Applications multilinéaires alternées}
 On travaille dans le corps $\K$ qui représente $\R$ ou $\mathbb{C}$.
 \begin{defini}[Applications multilinéaires]
@@ -294,6 +316,12 @@ On travaille dans le corps $\K$ qui représente $\R$ ou $\mathbb{C}$.
         $\psi:\mathcal{L}(E)\times\mathcal{L}(E)\to\mathcal{L}(E); (f,g)\to f\circ g$
     \end{itemize}
 \end{ex}
+\begin{exo}
+    Quelles sont les applications bilinéaires sur $E$ qui sont linéaires ?
+\end{exo}
+\begin{defini}[Fonction alternée]
+    Soit $f$ une application $n$-linéaire sur $E$ à valeur dans $F$. On dit que $f$ est alternée si $\forall(u_1,u_2,\dots,u_n)\in E^n,\forall i,j \in \llbracket 1,n\rrbracket$ avec $i\neq j$; $u_i=u_j\implies f(u_1,u_2,\dots,u_n)=0$.
+\end{defini}
 \begin{theoreme}[Développement d'un déterminant]
     Blabla
 \end{theoreme}

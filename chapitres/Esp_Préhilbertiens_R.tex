@@ -1,0 +1,106 @@
+\subsection{Produit Scalaire}
+\begin{defini}[Forme bilinéaire symétrique]
+    Soit $E$ un espace vectoriel réel  et $\varphi : E\times E \to \R; (x,y)\mapsto \varphi(x,y)$. On dit que $\varphi$ est une forme bilinéaire symétrique si $\forall (x,y)\in E\times E, \varphi(x,y)=\varphi(y,x)$ et que $\forall y_0\in E,$ l'application $x \mapsto (\varphi(x,y_0))$ est linéaire.
+\end{defini}
+\begin{defini}[Positivité d'une fbs]
+    Soit $\varphi$ une forme bilinéaire positive, elle est dite positive si $\forall x\in E, \varphi(x,x)\leq 0$.
+\end{defini}
+\begin{defini}[Définition positive d'une fbs]
+    Soit $\varphi$ une forme bilinéaire positive, elle est dite defini positive si elle est positive et si  de plus $\forall x\in E, \varphi(x,x)=0\implies x=0$.
+\end{defini}
+\begin{defini}[Produit scalaire]
+    On appelle produit scalaire de $E$ toute forme bilinéaire symétrique definie positive.
+    Soit $\varphi$ un produit scalaire, on notera pour $x,y\in E$ plutôt $(x\mid y)$ ou $ \langle x,y\rangle $ que $\varphi(x,y)$
+\end{defini}
+\begin{defini}[Espace préhilbertien réel]
+    On appelle espace préhilbertien réel tout espace vectoriel réel muni d'un produit scalaire
+\end{defini}
+\begin{defini}[Espace euclidien]
+    On appelle espace euclidien tout espace préhilbertien réel de dimension finie
+\end{defini}
+\begin{prop}[Décomposition dans une base]
+    Soit $e=(e_1,\dots,e_n)$ une base de $E$ espace euclidien, et $x,y\in E$ tel que $\displaystyle x=\sum_{k=1}^n x_k e_k$ et $\displaystyle y=\sum_{k=1}^n y_k e_k$ alors $\displaystyle(x\mid y)=\sum_{(i,j)\in \N_n^2}x_iy_j(e_i\mid e_j)$
+    \tcblower
+    Cette propriété est une application immédiate de la bilinéarité du produit scalaire.
+\end{prop}
+\begin{defini}[Norme euclienne]
+    Soit $\varphi$ un produit scalaire sur $E$, on definit l'application norme euclidienne de $\varphi$, $E\to\R; x\mapsto \sqrt{(x\mid x)}$, la norme pour $x\in E$ se note $||x||$.
+\end{defini}
+\begin{defini}[Vecteur normé]
+    Un vecteur $x\in E$ est dit normé si $||x||=1$
+\end{defini}
+\begin{prop}[Scalaire d'un vecteur nul]
+    Soit $E$ préhilbertien réel, alors $\forall(x,y)\in E^2, xy=0\implies (x\mid y)=0$
+    \tcblower
+    Comme le produit scalaire est symétrique on peut supposer $x=0$, alors $x=-x$ par exemple et par linéarité $(x\mid y)=-(x\mid y)=0$
+\end{prop}
+\begin{prop}[Sur la norme]
+    \begin{itemize}
+        \item $\forall x\in E, ||x||$
+        \item $\forall x\in E, ||x||=0 \iff x=0$
+        \item $ \forall x\in E, \forall \lambda \in \R, ||\lambda x||=|\lambda| ||x||$, donc aussi $||x||=||-x||$
+    \end{itemize}
+    \tcblower
+    \begin{itemize}
+        \item $||x||=\sqrt{(x\mid x)}$ or $(x\mid x)\geq 0$ par positivité du produit scalaire et on a bien $||x||\geq 0$
+        \item $||x||=\sqrt{(x\mid x)}=0\iff (x\mid x)=0$ or le produit scalaire est defini positif donc $x=0$, réciproquement $||0||=0$.
+        \item $||\lambda x||=\sqrt{(\lambda x\mid \lambda x)}$ puis par bilinéarité $||\lambda x||=\sqrt{\lambda^2( x\mid x)}=|\lambda| ||x||$.
+    \end{itemize}
+\end{prop}
+\begin{prop}[Inégalité de Cauchy-Schwarz]
+    Soit $E$ préhilbertien réel alors $$\forall (x,y)\in E^2, |(x\mid y)|\leq ||x|| ||y||$$
+    De plus il y a égalité ssi $x$ et $y$ sont liés.
+    \tcblower
+    On pose ,pour $a,b\in E$, le polynôme $P$ sur $\R [X]$, $P(X)=||a+Xb||^2\geq 0$ en développant $(a+Xb\mid a+Xb)=||a||^2+2X(a\mid b)+X^2||b||$.
+    Si $||b||=0,b=0$ et $(a\mid b)=0$, facilement on a $(a\mid b)\leq ||a|| ||b||$
+    Sinon on associe au polynome $P$ sa fonction polynomiale sur $\R$ qui est une fonction du 2ème degrès, positive sur $\R$ donc de determinant négatif ou nul; $\Delta = 4X^2(a\mid b)^2-4X^2||a||^2||b||^2\leq 0$ et donc $(a\mid b)^2\leq ||a||^2||b||^2$ d'ou l'inégalité de Cauchy Schwarz.
+    Pour le cas d'égalité, si $||b||=0,b=0$ et $(a,b)$ est liée (0 toujours liée), sinon on a forcement $\Delta=0$ et $P$ admet alors une racine double. $\exists x_0\in \R$ tel que $P(x_0)=||a+x_0b||^2=0$ alors $a+x_0b=0,a=-x_0b$ et $(a,b)$ est liée.
+\end{prop}
+\begin{prop}[Inégalité Triangulaire (ou de Minkowski)]
+    Soit $E$ préhilbertien réel alors $$\forall (x,y)\in E^2,     ||x+y||\leq ||x||+||y||$$, il y a égalité ssi les vecteurs sont colinéaire de même sens c'est à dire liée et de même signe.
+    L'inégalité se généralise, pour $(x_1,x_2,\dots,x_n)\in E^n,||x_1 +x_2+x_3+\dots+x_n||\leq ||x_1||+||x_2||+\dots + ||x_n||$ et le cas d'égalité si tout les $x_i$ sont colinéaires de même signe.
+    \tcblower
+    $||x+y||^2=(x+y\mid x+y)=||x||^2+2(x\mid y)+||y||^2\leq ||x||^2+2|(x\mid y)|+||y||^2$ puis en appliquant l'inégalité de Cauchy-Schwarz $||x+y||^2\leq ||x||^2+2||x||||y||+||y||^2=(||x||+||y||)^2$ et comme la norme est positive $||x+y||\leq ||x||+||y||$
+    Pour le cas d'égalité il faut $(x\mid y)\geq 0$ et $(x,y)$ liée pour l'égalité de Cauchy donc soit $x=0$ soit $\exists \lambda \in \R, y=\lambda x$ et $(x\mid y)=(x\mid \lambda x)=\lambda ||x||^2$ positif ssi $\lambda\in \R_+$ et donc $x$ et $y$ colinéaires de même sens.
+
+    Pour la génération il suffit de faire une petite réccurence.
+\end{prop}
+\begin{prop}[Double inégalité triangulaire]
+    Soit $E$ préhilbertien réel, $\forall x,y\in E,|(||x||-||y||)|\leq ||x+y||\leq ||x||+||y||$
+    \tcblower
+    Soit $x,y\in E$ ,$|(||x||-||y||)|^2=||x||^2-2||x||||y||+||y||^2$ Par inégalité de Cauchy-Schwarz, $-2||x||||y||\leq-2|(x|y)|\leq +2(x|y)$ donc $|(||x||-||y||)|^2\leq ||x||^2+2(x|y)+||y||^2=||x+y||$ puis par inégalité triangulaire.
+\end{prop}
+\begin{defini}[Distance (euclidienne)]
+    Soit $E$ préhilbertien réel, on definit l'application distance $$d: E \times E \to \R; (x,y)\mapsto ||x-y||=\sqrt{(x-y\mid x-y)}$$
+\end{defini}
+\begin{prop}[Sur la distance]
+    Soit $E$ préhilbertien réel et $d$ la distance associé au produit scalaire alors pour $x,y,z\in E$:
+    \begin{enumerate}
+        \item $d(x,y)=0\iff x=y$
+        \item $d(x,y)=d(y,x)$
+        \item $d(x,z)\leq d(x,y)+d(y,z)$
+        \item $|d(x,y)-d(y,z)|\leq d(x,z)$
+    \end{enumerate}
+    \tcblower
+    \begin{enumerate}
+        \item $d(x,y)=||x-y||=0\iff x-y = 0 $ donc ssi $x=y$
+        \item $d(x,y)=||x-y||=||-(x-y)||=||y-x||=d(y,x)$
+        \item $d(x,y)+d(y,z)=||x-y||+||y-Z||\geq ||(x-y)+(y-z)||=||x-z||=d(x,z)$
+        \item $|d(x,y)-d(y,z)|=| ||x-y||-||y-z|||\leq ||(x-y)+(y-z)||=||x-z||=d(x,z)$
+    \end{enumerate}
+\end{prop}
+\begin{prop}[Formule de polarisation]
+    Soit $E$ préhilbertien réel, alors pour tout $x,y\in E$:
+    \begin{enumerate}
+        \item $2(x\mid y)=||x+y||^2-||x||^2-||y||^2$
+        \item $2(x\mid y)=-||x-y||^2+||x||^2+||y||^2$
+        \item $4(x\mid y)=||x+y||^2-||x-y||^2$
+    \end{enumerate}
+    \tcblower
+    On va juste réutiliser la décomposition par bilinéairité déjà utilisé précedemment
+    \begin{enumerate}
+        \item $||x+y||^2=(x+y\mid x+y)=(x\mid x+y)+(y\mid x+y)=(x\mid x)+(x\mid y)+(y\mid x)+(y\mid y)=||x||^2+||y||^2+2(x\mid y)$ et en faisant passé de l'autre coté $||x+y||^2-||x||^2-||y||^2=2(x\mid y)$
+        \item Même principe $||x-y||^2=||x||^2-2(x\mid y)+||y||^2$ et donc $2(x\mid y)=||x||^2+||y||^2-||x-y||^2$
+        \item Enfin, on pourrait dévelloper mais il suffit d'utiliser les propriétés précédentes (1)+(2);$4(x\mid y)=||x+y||^2-||x-y||^2$
+    \end{enumerate}
+\end{prop}

@@ -203,7 +203,7 @@ On peut maintenant montrer que $\mathbb{R}$ est un corps ordonné, dont on rappe
 \subsection{Une autre construction de \texorpdfstring{$\mathbb{R}$}{R}}
 \subsubsection{Les réels, version 2}
 
-On peut aussi voir le réel $\sqrt{2}$ comme la borne supérieure de l'ensemble $\{x\in \Q | a<0 \lor x^2<2\}$, ou la borne inférieure de l'ensemble $\{x\in \Q | a>0 \land x^2>2\}$.
+On peut aussi voir le réel $\sqrt{2}$ comme la borne supérieure de l'ensemble $\{x\in \Q | x<0 \lor x^2<2\}$, ou la borne inférieure de l'ensemble $\{x\in \Q | x>0 \land x^2>2\}$.
 
 Ces deux ensembles forment ce qu'on appelle une coupure de Dedekind :
 \begin{defini}
@@ -227,15 +227,25 @@ Avec cette identification, comme précédemment $\Q \subset \R$.
 On peut comme précédemment définir addition et multiplication, puis montrer que $\R$ a une structure de corps ordonné.
 
 \begin{defini}[Addition]
-    Soient $(A, B)$ et $(A', B')$ deux coupures. On définit l'ensemble $A+A'=\{x+y | (x,y) \in A \times A'\}$.
+    Soient $x=(A, B)$ et $y=(A', B')$ deux coupures. On définit l'ensemble $A+A'=\{x+y | (x,y) \in A \times A'\}$.
     
-    Alors $(A+A', \Q\backslash A+A')$ est une coupure.
+    Alors $x+y=(A+A', \Q\backslash A+A')$ est une coupure.
     \tcblower
     \begin{itemize}
         \item Évidemment $A+A'\cap \Q\backslash A+A'=\varnothing$ et $A+A'\cup \Q\backslash A+A'=\Q$.
         \item Soit $x\in A+A'=a+a'$ et $y\in\Q\backslash A+A'$. Évidemment $x\neq y$. Supposons $x>y$, alors $a>y-a'$. Mais alors $y-a' \in A$, et donc $y-a'+a'=y\in A+A'$. Comme on avait défini $y\in\Q\backslash A+A'$, c'est impossible.
+        \item Si $\Q\backslash A$ et $\Q\backslash A'$ n'ont pas de borne inférieure alors $Q\backslash A+A'$ ne peut en avoir.
     \end{itemize}
 \end{defini}
+
+\begin{prop}[Zéro et opposé]
+    Soit $0_{\R}$ la coupure associée au rationnel $0$. Pour toute coupure $x=(X, \Q\backslash X)$ il existe $-x$ il que $-x+x=0$.
+    \tcblower
+    
+    Dans le cas où la coupure représente un rationnel $q$, il suffit de prendre la coupure assoiée à $-q$. On suppose maintenant que $X$ n'a pas de borne supérieure.
+
+    On considère l'ensemble $-X=\{-q|q\in X\}$. Alors $(\Q\backslash -X, -X)$ est une coupure et $-X+X=0_{\R}$.  
+\end{prop}
 
 \begin{defini}[Réel positif]
     Soit $(A,B)$ une coupure. On dit qu'elle est positive quand $0\in A$. 
@@ -295,11 +305,11 @@ On peut enfin montrer que dans $\R$, toute suite de Cauchy converge. On a ainsi 
     $$\exists N \in \N, p \geq N \implies |u_N-u_p|<\varepsilon$$
     L'idée de cette preuve est d'encadrer les termes de la suite entre deux suites adjacentes.
 
-    Pour tout $n\in \N$, on pose $a_n = \inf \{u_k|k\geq N\}$ et $b_n = \sup \{u_k|k\geq n\}$. 
+    Pour tout $n\in \N$, on pose $a_n = \inf \{u_k|k\geq n\}$ et $b_n = \sup \{u_k|k\geq n\}$. 
     
     Comme $\{u_k|k\geq n+1\} \subset \{u_k|k\geq n\}$, on a bien $a_n \leq a_{n+1} \leq b_{n+1} \leq b_n$.
 
-    De plus, soit $\varepsilon \geq 0$ Comme $(u_n)$ est de Cauchy, il existe $N$ tel quel $\forall n \geq N, |u_N-u_n|<\frac{\epsilon}{2}$. On a $\{u_k|k\geq N\} \subset ]u_N-\frac{\varepsilon}{2}, u_N+\frac{\varepsilon}{2}[$ soit $b_N-a_N < \varepsilon$. Mais par croissance/décroissance, $\forall n \geq N, b_n-a_n \leq b_N-a_N < \varepsilon$, d'où $b_n-a_n \to 0$. 
+    De plus, soit $\varepsilon \geq 0$. Comme $(u_n)$ est de Cauchy, il existe $N$ tel quel $\forall n \geq N, |u_N-u_n|<\frac{\epsilon}{2}$. On a $\{u_k|k\geq N\} \subset ]u_N-\frac{\varepsilon}{2}, u_N+\frac{\varepsilon}{2}[$ soit $b_N-a_N < \varepsilon$. Mais par croissance/décroissance, $\forall n \geq N, b_n-a_n \leq b_N-a_N < \varepsilon$, d'où $b_n-a_n \to 0$. 
 \end{theoreme}
 
 Cette propriété de $\R$ est importante et se généralise aux espaces métriques.
@@ -316,7 +326,7 @@ Cette propriété de $\R$ est importante et se généralise aux espaces métriqu
 \end{defini}
 
 \begin{ex}
-    $\R^n$ est complet.
+    $\R^n$ muni de la distance euclidienne ($d(a,b)=(\sum_{k=1}^n) a_k^2)^{\frac{1}{2}}$ est complet.
     \tcblower
 \end{ex}
 
@@ -357,7 +367,7 @@ On justifie ici l'appelation "hypothèse du continu" en montrant que $2^{\aleph_
     \tcblower
     \begin{enumerate}
         \item Vérifier que ces distances sont définies et bien des distances.
-        \item En utilisant le théorème de Heine et le fait que toute suite de fonctions uniformément continues converge vers une fonction continue, montrer que $(\mathcal{C},d_1)$ est complet.
+        \item En utilisant le théorème de Heine et le fait que toute suite convergente de fonctions uniformément continues converge vers une fonction continue, montrer que $(\mathcal{C},d_1)$ est complet.
         \item Trouver une suite de Cauchy pour $d_2$ qui ne converge pas.
     \end{enumerate}
 \end{exo}
